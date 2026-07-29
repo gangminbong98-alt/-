@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>샤먼 가자 119!! - 도입 하문</title>
+
+  <!-- 📱 바탕화면 바로가기 전용 아이콘 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+  <link rel="apple-touch-icon" href="https://img.icons8.com/emoji/192/000000/airplane-emoji.png">
+
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      word-break: keep-all;
+    }
+    body { 
+      background-color: #cbd5e1; 
+      display: flex; 
+      justify-content: center; 
+      align-items: flex-start;
+      padding: 0; 
+      margin: 0;
+      color: #0f172a; 
+      min-height: 100vh; 
+    }
+    
+    .app-container {
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .beach-hero {
+      position: relative;
+      background: linear-gradient(180deg, #0284c7 0%, #0369a1 55%, #38bdf8 100%);
+      padding: 20px 16px 36px 16px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .sun-glow {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #fef08a 35%, rgba(254, 240, 138, 0.3) 70%, transparent 100%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .floating-plane {
+      position: absolute;
+      top: 14px;
+      left: 10px;
+      font-size: 18px;
+      animation: planeFly 4s ease-in-out infinite alternate;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    @keyframes planeFly {
+      0% { transform: translate(0, 0) rotate(-2deg); }
+      100% { transform: translate(12px, -6px) rotate(4deg); }
+    }
+
+    .hero-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      gap: 8px;
+    }
+
+    .app-title-box { display: flex; flex-direction: column; }
+    .sub-tag { font-size: 11px; font-weight: 800; color: #e0f2fe; letter-spacing: 0.5px; margin-bottom: 2px; }
+    
+    .main-hero-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 8px rgba(3, 105, 161, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .clickable-xiamen {
+      color: #fde047;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      cursor: pointer;
+      position: relative;
+    }
+    .clickable-xiamen::after {
+      content: "📸";
+      font-size: 13px;
+      margin-left: 2px;
+      vertical-align: middle;
+    }
+
+    .header-right-group { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+
+    .badge-box {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+      border-radius: 10px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+      line-height: 1.2;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      white-space: nowrap;
+    }
+
+    .btn-top-admin {
+      background: #0f172a;
+      color: #fde047;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 4px 8px;
+      border-radius: 16px;
+      font-size: 10px;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      white-space: nowrap;
+    }
+
+    .beach-quote-bar {
+      margin-top: 10px;
+      background: #ffffff;
+      border: 2px solid #0284c7;
+      border-radius: 12px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .quote-text { 
+      font-size: 11px; 
+      font-weight: 900; 
+      color: #0369a1; 
+      display: flex; 
+      align-items: center; 
+      gap: 4px; 
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    
+    .dday-tag { 
+      background: #0f172a; 
+      color: #fde047; 
+      font-size: 11px; 
+      font-weight: 900; 
+      padding: 4px 8px; 
+      border-radius: 8px; 
+      letter-spacing: 0.5px; 
+      white-space: nowrap; 
+      flex-shrink: 0;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
+    .wave-svg { position: relative; display: block; width: calc(150% + 1.3px); height: 22px; animation: waveAnimation 8s linear infinite alternate; }
+    @keyframes waveAnimation { 0% { transform: translateX(0); } 100% { transform: translateX(-20%); } }
+
+    .app-body { padding: 14px; background: #ffffff; border-radius: 20px 20px 0 0; margin-top: -10px; position: relative; z-index: 3; }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
+    .menu-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 8px 2px; border: 1.5px solid #cbd5e1; border-radius: 14px; background-color: #f8fafc; transition: all 0.25s; user-select: none; }
+    .menu-item.active { background-color: #f0f9ff; border-color: #0284c7; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2); transform: translateY(-2px); }
+    .icon-box { width: 38px; height: 38px; background-color: #e0f2fe; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 18px; margin-bottom: 4px; }
+    .menu-item.active .icon-box { background: linear-gradient(135deg, #0284c7, #0369a1); color: white; }
+    .menu-label { font-size: 11px; font-weight: 800; color: #334155; white-space: nowrap; }
+    .menu-item.active .menu-label { color: #0284c7; }
+
+    .content-card { background: #ffffff; }
+
+    .dashboard-dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .summary-card-half {
+      background: #f0f9ff;
+      border: 1.5px solid #7dd3fc;
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .summary-card-half.reg-card {
+      background: #fef2f2;
+      border-color: #fca5a5;
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-title {
+      font-size: 12px;
+      font-weight: 900;
+      color: #0369a1;
+      white-space: nowrap;
+    }
+    .reg-card .card-title { color: #dc2626; }
+    
+    .card-pct-tag {
+      font-size: 11px;
+      font-weight: 900;
+      color: #0284c7;
+      background: #e0f2fe;
+      padding: 1px 6px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .reg-card .card-pct-tag {
+      color: #dc2626;
+      background: #fee2e2;
+    }
+
+    .card-count-val {
+      font-size: 14px;
+      font-weight: 900;
+      color: #0f172a;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    .card-sub-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+    .progress-bar-bg { width: 100%; height: 8px; background: #cbd5e1; border-radius: 10px; overflow: hidden; margin-top: 4px; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #38bdf8, #0284c7); border-radius: 10px; transition: width 0.5s; }
+    .progress-bar-fill.reg-fill { background: linear-gradient(90deg, #f87171, #dc2626); }
+
+    .table-container { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .section-title { font-size: 15px; font-weight: 900; color: #0f172a; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    
+    table { width: 100%; border-collapse: collapse; text-align: center; }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 3px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
+    
+    .branch-cell { font-size: 11px; color: #475569; font-weight: 800; background-color: #fafafa; }
+
+    td[contenteditable="true"]:focus { outline: 2px solid #0284c7; background-color: #f0f9ff; }
+    
+    .btn-achieve { background-color: #64748b; color: white; border: none; padding: 5px 8px; border-radius: 6px; cursor: pointer; font-weight: 800; font-size: 11px; white-space: nowrap; }
+    .btn-achieve.completed { background-color: #0284c7; }
+
+    .btn-add { background: #0284c7; color: white; border: none; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+    .btn-delete { background: #ef4444; color: white; border: none; padding: 3px 6px; border-radius: 4px; font-size: 10px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+
+    .image-viewer { display: none; text-align: center; }
+
+    .award-poster-card { position: relative; background: #f0f9ff; border: 2px solid #0284c7; border-radius: 18px; padding: 22px 18px; margin-top: 10px; text-align: center; overflow: hidden; }
+    .flight-ribbon { position: absolute; top: 12px; right: -8px; background: #ef4444; color: #ffffff; font-weight: 900; font-size: 12px; padding: 5px 14px; border-radius: 6px 0 0 6px; transform: rotate(-2deg); border: 1.5px solid white; }
+    .poster-top-title { font-size: 32px; font-weight: 900; color: #0284c7; }
+    .poster-main-title { font-size: 36px; font-weight: 900; color: #1d4ed8; margin-top: -4px; margin-bottom: 14px; }
+    .poster-sub1 { font-size: 20px; font-weight: 900; color: #0f172a; }
+    .poster-sub2 { font-size: 20px; font-weight: 900; color: #0f172a; margin-top: 6px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .poster-sub2 .highlight-box { color: #dc2626; border: 2.5px solid #dc2626; padding: 1px 8px; background: #ffffff; border-radius: 6px; font-weight: 900; }
+    .poster-sub3 { font-size: 21px; font-weight: 900; color: #1d4ed8; margin-top: 6px; }
+    .poster-sub4 { font-size: 21px; font-weight: 900; color: #0f172a; margin-top: 6px; margin-bottom: 20px; }
+    .poster-badge-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .badge-pill-blue { background: #0284c7; color: #ffffff; font-weight: 900; font-size: 13px; padding: 5px 14px; border-radius: 20px; }
+    .badge-pill-sub { font-size: 13px; font-weight: 900; color: #0369a1; background: #e0f2fe; padding: 4px 10px; border-radius: 12px; border: 1px solid #7dd3fc; }
+    .poster-table { width: 100%; border-collapse: collapse; background: #ffffff; border-radius: 10px; overflow: hidden; margin-bottom: 8px; border: 2px solid #0284c7; }
+    .poster-table th { background: #0284c7; color: #ffffff; font-size: 13px; font-weight: 900; padding: 8px; border: 1px solid #0284c7; }
+    .poster-table td { padding: 10px 8px; font-size: 13px; font-weight: 800; border: 1px solid #cbd5e1; text-align: center; color: #0f172a; }
+    .text-red-trip { color: #dc2626; font-size: 14px; font-weight: 900; }
+    .poster-note-box { text-align: left; font-size: 12px; color: #334155; font-weight: 800; background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #ef4444; padding: 8px 12px; border-radius: 8px; margin-bottom: 16px; }
+    .poster-info-box { text-align: left; font-size: 12px; color: #334155; font-weight: 800; background: #ffffff; border: 1px solid #cbd5e1; border-left: 4px solid #0284c7; padding: 8px 12px; border-radius: 8px; margin-bottom: 8px; }
+
+    .schedule-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; text-align: left; }
+    .poster-header-bar { background: #0284c7; color: #ffffff; padding: 14px 16px; font-size: 18px; font-weight: 900; display: flex; align-items: center; gap: 8px; }
+    .poster-body { padding: 16px; }
+    .schedule-flow-grid { display: flex; justify-content: space-between; align-items: center; gap: 4px; margin: 12px 0 20px 0; }
+    .flow-item { flex: 1; background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 2px; text-align: center; font-size: 11px; font-weight: 800; }
+    .flow-item.active-blue { background: #0284c7; color: #ffffff; border-color: #0284c7; font-weight: 900; }
+    .flow-arrow-ic { color: #64748b; font-weight: 900; font-size: 11px; }
+    .kpi-table-style { width: 100%; border-collapse: collapse; text-align: center; margin-top: 8px; }
+    .kpi-table-style th { background: #f1f5f9; padding: 8px 4px; font-size: 12px; font-weight: 900; border: 1px solid #94a3b8; color: #0f172a; }
+    .kpi-table-style td { padding: 8px 4px; font-size: 11px; border: 1px solid #94a3b8; font-weight: 700; color: #0f172a; }
+    .kpi-red-highlight-box { border: 2.5px solid #ef4444 !important; background-color: #fef2f2; }
+
+    .target-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; }
+    .target-table-style { width: 100%; border-collapse: collapse; text-align: center; }
+    .target-table-style th { background: #0284c7; color: #ffffff; font-size: 14px; font-weight: 900; padding: 10px; border: 1px solid #0284c7; }
+    .target-table-style td { padding: 10px; font-size: 13px; font-weight: 800; border: 1px solid #cbd5e1; color: #0f172a; }
+    .target-table-style tr:nth-child(even) { background: #f8fafc; }
+    .target-table-style tr.region-total { background: #e0f2fe; font-size: 14px; }
+
+    /* 🖼️ 샤먼 명소 4선 모달 */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      padding: 16px;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 440px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .modal-title { font-size: 18px; font-weight: 900; color: #0284c7; }
+    .btn-close-modal { background: #f1f5f9; border: none; font-size: 18px; font-weight: 900; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
+
+    .gallery-grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid #cbd5e1;
+      background: #f8fafc;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    }
+    .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .gallery-caption { font-size: 12px; font-weight: 900; color: #0369a1; padding: 8px 4px; text-align: center; background: #f0f9ff; border-top: 1px solid #e2e8f0; }
+
+    .toast-popup {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      color: #fde047;
+      padding: 12px 22px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      text-align: center;
+      max-width: 90%;
+    }
+    .toast-popup.show { transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <div class="beach-hero">
+    <div class="sun-glow"></div>
+    <div class="floating-plane">✈️</div>
+
+    <div class="hero-header-top">
+      <div class="app-title-box">
+        <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
+        <h1 class="main-hero-title">
+          <span class="clickable-xiamen" onclick="openPhotoModal()">샤먼</span> 가자 119!!
+        </h1>
+      </div>
+      <div class="header-right-group">
+        <div class="badge-box">
+          9월 등록<br>✈️ 11월 출발
+        </div>
+        <button class="btn-top-admin" id="admin-toggle-btn" onclick="toggleAdminMode()">🔒 관리자 로그인</button>
+      </div>
+    </div>
+
+    <div class="beach-quote-bar">
+      <div class="quote-text">
+        <span>🏝️ 에메랄드빛 샤먼 해변이 우리를 기다립니다!</span>
+      </div>
+      <span class="dday-tag" id="dday-counter">D-00</span>
+    </div>
+
+    <div class="wave-container">
+      <svg class="wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,20 1200,60 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="app-body">
+    <div class="menu-grid">
+      <div class="menu-item active" id="btn-progress" onclick="showSection('progress')">
+        <div class="icon-box">📊</div>
+        <span class="menu-label">도입진척</span>
+      </div>
+      <div class="menu-item" id="btn-award" onclick="showSection('award')">
+        <div class="icon-box">🏆</div>
+        <span class="menu-label">시상</span>
+      </div>
+      <div class="menu-item" id="btn-schedule" onclick="showSection('schedule')">
+        <div class="icon-box">📅</div>
+        <span class="menu-label">일정표</span>
+      </div>
+      <div class="menu-item" id="btn-target" onclick="showSection('target')">
+        <div class="icon-box">🎯</div>
+        <span class="menu-label">목표</span>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <div id="section-progress" class="table-container">
+        
+        <!-- 📊 모바일 대응 대시보드 카드 2개 -->
+        <div class="dashboard-dual-grid">
+          <div class="summary-card-half">
+            <div class="card-header">
+              <span class="card-title">📌 OT 현황</span>
+              <span class="card-pct-tag" id="ot-pct-tag">0%</span>
+            </div>
+            <div class="card-count-val" id="ot-summary-stats">0 / 0명</div>
+            <div class="card-sub-label">OT 진행 수치 (실시간 연동)</div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="ot-progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="summary-card-half reg-card">
+            <div class="card-header">
+              <span class="card-title">✈️ 등록 현황</span>
+              <span class="card-pct-tag" id="reg-pct-tag">0%</span>
+            </div>
+            <div class="card-count-val" id="reg-summary-stats">0 / 0명</div>
+            <div class="card-sub-label">최종 등록 달성률 (실시간 연동)</div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill reg-fill" id="reg-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: right; margin-bottom: 8px;">
+          <span id="admin-status-tag" style="font-size:11px; color:#64748b; font-weight:800;">👀 읽기 전용 (팀원 실시간 공유 모드)</span>
+        </div>
+
+        <div class="section-title">
+          <span>📋 도입진척 현황</span>
+          <button class="btn-add" id="btn-add-team" onclick="addRow()" style="display:none;">+ 팀원 추가</button>
+        </div>
+
+        <table id="progress-table">
+          <thead>
+            <tr>
+              <th style="width:20%;">지점</th>
+              <th style="width:22%;">성명</th>
+              <th style="width:13%;">OT</th>
+              <th style="width:13%;">입과</th>
+              <th style="width:13%;">등록</th>
+              <th style="width:19%;">샤먼</th>
+              <th class="admin-col" style="display:none; width:12%;">관리</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- JS 동적 생성 -->
+          </tbody>
+        </table>
+        <p style="margin-top:10px; font-size:11px; color:#64748b; font-weight:700;" id="guide-msg">💡 관리자가 수치를 수정하면 전원 화면에 실시간으로 자동 공유됩니다.</p>
+      </div>
+
+      <div id="section-image" class="image-viewer">
+        <div class="section-title">
+          <span id="image-title">🏆 시상 안내</span>
+        </div>
+
+        <div id="view-award" class="award-poster-card" style="display:none;">
+          <div class="flight-ribbon">✈️ 11월 출발</div>
+          <div class="poster-top-title">도입 하문</div>
+          <div class="poster-main-title">하문 간다!!!</div>
+          <div class="poster-sub1">수도권사업부 주관</div>
+          <div class="poster-sub2"><span class="highlight-box">처음이자 마지막</span> 여행 시상</div>
+          <div class="poster-sub3">‘도입 하문, 하문 간다!’</div>
+          <div class="poster-sub4">이번에 꼭 같이 가시죠!</div>
+
+          <div class="poster-badge-bar">
+            <span class="badge-pill-blue">유치자</span>
+            <span class="badge-pill-sub">* 9월 등록</span>
+          </div>
+          <table class="poster-table">
+            <thead>
+              <tr>
+                <th style="width: 32%;">구분</th>
+                <th>시상 내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>등록시상</td>
+                <td><span class="text-red-trip">해외여행(하문 3박4일)</span><br><small style="font-size:11px; font-weight:700; color:#475569;">*미참석시 100만원</small></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="poster-note-box">※ 단, 4차월 미정착시 시상 전액 회입</div>
+
+          <div class="poster-badge-bar" style="margin-top: 12px;">
+            <span class="badge-pill-blue">후보자</span>
+            <span class="badge-pill-sub">* 8월 입과 9월 등록</span>
+          </div>
+          <table class="poster-table">
+            <thead>
+              <tr>
+                <th style="width: 34%;">구분</th>
+                <th style="width: 33%;">BTC</th>
+                <th style="width: 33%;">청강</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>합격&수료&등록</td>
+                <td>100만</td>
+                <td>70만</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="poster-info-box">※ 시상에 대한 상세내용은 지점장님을 통해서 확인하시기 바랍니다.</div>
+        </div>
+
+        <div id="view-schedule" class="schedule-poster-card" style="display:none;">
+          <div class="poster-header-bar">
+            <span>🏢</span> 8월 입과 주요 일정
+          </div>
+          <div class="poster-body">
+            <div style="margin-bottom: 6px;">
+              <span class="badge-pill-blue">추진 일정</span>
+            </div>
+
+            <div class="schedule-flow-grid">
+              <div class="flow-item">보험스쿨<br><small>~8.12(수)</small></div>
+              <span class="flow-arrow-ic">▶</span>
+              <div class="flow-item active-blue">BTC입과<br><small>8.13(목)</small></div>
+              <span class="flow-arrow-ic">▶</span>
+              <div class="flow-item">응시마감<br><small>8.20(목)</small></div>
+              <span class="flow-arrow-ic">▶</span>
+              <div class="flow-item">자격시험<br><small>8.27(목)</small></div>
+              <span class="flow-arrow-ic">▶</span>
+              <div class="flow-item">BTC수료<br><small>9.7(월)</small></div>
+            </div>
+
+            <div style="margin-bottom: 6px; display:flex; align-items:center; gap:6px;">
+              <span class="badge-pill-blue">구간별 KPI</span>
+              <span style="font-size:14px;">⭐⭐⭐</span>
+            </div>
+
+            <table class="kpi-table-style">
+              <thead>
+                <tr>
+                  <th style="width:16%;">구간</th>
+                  <th class="kpi-red-highlight-box" style="width:21%;">1구간</th>
+                  <th class="kpi-red-highlight-box" style="width:21%;">2구간</th>
+                  <th style="width:21%;">3구간</th>
+                  <th style="width:21%;">4구간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:800; background:#f8fafc;">일자</td>
+                  <td class="kpi-red-highlight-box">7.16 ~ 24일</td>
+                  <td class="kpi-red-highlight-box">7.27 ~ 31일</td>
+                  <td>8.3 ~ 7일</td>
+                  <td>8.9 ~ 12일</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:800; background:#f8fafc;">KPI</td>
+                  <td class="kpi-red-highlight-box">보험스쿨 전담 7명<br>입과확정 전담 2명</td>
+                  <td class="kpi-red-highlight-box">보험스쿨 전담 12명<br>입과확정 전담 4명</td>
+                  <td>보험스쿨 전담 15명<br>입과확정 전담 5명</td>
+                  <td>보험스쿨 전담 17명<br>입과확정 전담 6명</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:800; background:#f8fafc;">참고</td>
+                  <td colspan="2" class="kpi-red-highlight-box" style="color:#0f172a;">
+                    8월 입과의 핵심 골든타임<br>
+                    <strong style="color:#dc2626; font-size:12px; font-weight:900;">보험스쿨 집중 모객</strong>
+                  </td>
+                  <td>RC 및 고객 휴가시즌으로<br>보험스쿨 모객 어려움</td>
+                  <td>입과주간으로<br>후보자 추가확보 어려움</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="view-target" class="target-poster-card" style="display:none;">
+          <div class="poster-header-bar">
+            <span>🏢</span> 지점장 및 선임팀장 각오 발표
+          </div>
+          <table class="target-table-style">
+            <thead>
+              <tr>
+                <th>지점</th>
+                <th>경영목표</th>
+                <th>등록목표</th>
+                <th>달성률(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>광명</td><td>2</td><td>8</td><td style="color:#0284c7;">400</td></tr>
+              <tr><td>안양성공</td><td>2</td><td>17</td><td style="color:#0284c7;">850</td></tr>
+              <tr><td>안양비산</td><td>3</td><td>12</td><td style="color:#0284c7;">400</td></tr>
+              <tr><td>인덕원</td><td>4</td><td>11</td><td style="color:#0284c7;">275</td></tr>
+              <tr><td>시흥신천</td><td>2</td><td>12</td><td style="color:#0284c7;">600</td></tr>
+              <tr><td>안양SF</td><td>2</td><td>11</td><td style="color:#0284c7;">550</td></tr>
+              <tr class="region-total">
+                <td><strong>지역단</strong></td>
+                <td><strong>15</strong></td>
+                <td><strong>71</strong></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🔒 관리자 로그인 전용 커스텀 모달 팝업 -->
+<div class="modal-overlay" id="admin-modal">
+  <div class="modal-box" style="max-width: 320px; text-align: center;">
+    <div class="modal-header">
+      <div class="modal-title" style="font-size:16px;">🔒 관리자 로그인</div>
+      <button class="btn-close-modal" onclick="closeAdminModal()">✕</button>
+    </div>
+    <p style="font-size:12px; color:#64748b; margin-bottom:12px; font-weight:700;">관리자 비밀번호를 입력해 주세요.</p>
+    <input type="password" id="admin-password-input" placeholder="비밀번호 4자리" style="width:100%; padding:10px; border:1.5px solid #cbd5e1; border-radius:10px; font-size:14px; text-align:center; margin-bottom:12px; font-weight:900;" onkeyup="if(event.key==='Enter') submitAdminPassword()">
+    <div style="display:flex; gap:8px;">
+      <button onclick="closeAdminModal()" style="flex:1; padding:8px; border:1px solid #cbd5e1; background:#f1f5f9; border-radius:8px; font-weight:800; font-size:12px; cursor:pointer;">취소</button>
+      <button onclick="submitAdminPassword()" style="flex:1; padding:8px; border:none; background:#0284c7; color:white; border-radius:8px; font-weight:900; font-size:12px; cursor:pointer;">로그인</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🖼️ 팝업: 정확한 샤먼 핵심 명소 4선 사진 -->
+<div class="modal-overlay" id="photo-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title">🌴 샤먼 핵심 명소 4선</div>
+      <button class="btn-close-modal" onclick="closePhotoModal()">✕</button>
+    </div>
+    <p style="font-size:12px; color:#64748b; font-weight:700; margin-bottom:10px;">우리가 11월에 다 함께 떠날 아름다운 샤먼입니다! ✈️</p>
+    
+    <div class="gallery-grid-4">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" alt="남보타사">
+        <div class="gallery-caption">1. 남보타사 ⛩️</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=500" alt="남정토루">
+        <div class="gallery-caption">2. 남정토루 🏯</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="구랑위1">
+        <div class="gallery-caption">3. 구랑위 해변 🏝️</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=500" alt="구랑위2">
+        <div class="gallery-caption">4. 구랑위 거리 🏛️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-popup" id="toast">🎉 축하합니다! 샤먼 여행 달성!</div>
+
+<script>
+  const defaultTeamData = [
+    // [광명] (16명)
+    { branch: '광명', name: '김연옥', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '유현', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '전세원', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '조현숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '최선자', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '서순자', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '안은숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '이화', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '임화순', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '김영란', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '정연희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '푸른', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '천유진', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '김영선', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '박나희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '광명', name: '박종숙', ot: 0, ip: 0, reg: 0, completed: false },
+
+    // [안양성공] (20명)
+    { branch: '안양성공', name: '김명숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '최문희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '서연', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '박지혜', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '우향이', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '김향순', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '김연희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '조영옥', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '서은희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '김미화', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '김영희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '나래', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '이서현', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '조미경', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '이승렬', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '최춘례', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '박순천', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '정경자', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '조옥희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', name: '최봉문', ot: 0, ip: 0, reg: 0, completed: false },
+
+    // [안양비산] (24명)
+    { branch: '안양비산', name: '이화숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '김영화', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '홍경숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '서경자', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '이영화', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '김월선', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '김희숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '박명숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '곽경선', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '서지호', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '강판금', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '김예섭', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '진솔', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '황정욱', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '신예숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '김성단', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '이안숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '정용재', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '윤금이', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '유수환', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '윤예화', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '황종순', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '송규섭', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', name: '이혜옥', ot: 0, ip: 0, reg: 0, completed: false },
+
+    // [인덕원] (19명)
+    { branch: '인덕원', name: '김병미', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '남경애', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '정태연', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '임나경', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '박창오', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '서옥련', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '정유리', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '유명현', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '김연화', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '문정숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '신연화', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '이창애', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '김진숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '박현임', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '이은미', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '이병숙', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '김향옥', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '임종분', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', name: '정귀선', ot: 0, ip: 0, reg: 0, completed: false },
+
+    // [시흥신천] (16명)
+    { branch: '시흥신천', name: '윤정덕', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '김동미', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '편민자', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '홍미영', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '김하영', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '강도영', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '배미정', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '윤광', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '김선태', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '이민정', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '이정애', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '조춘희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '박지우', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '김원경', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '장근희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '시흥신천', name: '허유정', ot: 0, ip: 0, reg: 0, completed: false },
+
+    // [안양SF] - 신규 4명(이경환, 김명희, 김미례, 유노을) 포함 총 11명
+    { branch: '안양SF', name: '김장희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '한미선', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '한미은', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '김혜선', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '김가은', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '김희정', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '손주희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '이경환', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '김명희', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '김미례', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', name: '유노을', ot: 0, ip: 0, reg: 0, completed: false }
+  ];
+
+  let teamData = [];
+  let isAdmin = false;
+  const ADMIN_PASSWORD = "0569";
+
+  // 🌐 초간단 전세계 실시간 공용 클라우드 API (JSONbin 엔드포인트)
+  const CLOUD_API_URL = "https://api.jsonbin.io/v3/b/669d1a8ce41b4d34e414c2b9";
+
+  window.onload = function() {
+    calculateDDay();
+    loadCloudData();
+    // 🔄 4초마다 카톡 공유자 전원 실시간 자동 동기화
+    setInterval(loadCloudData, 4000);
+  };
+
+  // ☁️ 클라우드 데이터 동기화 함수
+  async function loadCloudData() {
+    try {
+      const response = await fetch(CLOUD_API_URL + "/latest", {
+        headers: { "X-Bin-Meta": "false" }
+      });
+      if (response.ok) {
+        const cloudList = await response.json();
+        if (Array.isArray(cloudList) && cloudList.length > 0) {
+          teamData = syncWithDefault(cloudList);
+          renderTable();
+          return;
+        }
+      }
+    } catch(e) {
+      console.log("Cloud load fallback");
+    }
+    
+    // 실패 시 로컬 보완
+    if (teamData.length === 0) {
+      const saved = localStorage.getItem('xiamen_team_data');
+      teamData = saved ? syncWithDefault(JSON.parse(saved)) : defaultTeamData;
+      renderTable();
+    }
+  }
+
+  function syncWithDefault(incomingData) {
+    let merged = [...incomingData];
+    defaultTeamData.forEach(defItem => {
+      const exists = merged.some(m => m.name === defItem.name && m.branch === defItem.branch);
+      if (!exists) {
+        merged.push(defItem);
+      }
+    });
+    return merged;
+  }
+
+  async function saveData() {
+    // 1. 휴대폰 로컬 저장
+    try {
+      localStorage.setItem('xiamen_team_data', JSON.stringify(teamData));
+    } catch(e) {}
+
+    // 2. 실시간 인터넷 클라우드 서버에 저장 (공유받은 사람 전원에게 실시간 전송!)
+    try {
+      await fetch(CLOUD_API_URL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(teamData)
+      });
+    } catch(e) {
+      console.log("Cloud save fallback");
+    }
+
+    updateDashboard();
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById('table-body');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    teamData.forEach((item, index) => {
+      const tr = document.createElement('tr');
+      const editableAttr = isAdmin ? 'contenteditable="true"' : '';
+
+      tr.innerHTML = `
+        <td class="branch-cell" ${editableAttr} onblur="updateRowData(${index}, 'branch', this.innerText)">${item.branch || '지점'}</td>
+        <td ${editableAttr} onblur="updateRowData(${index}, 'name', this.innerText)">${item.name}</td>
+        <td ${editableAttr} onblur="updateRowData(${index}, 'ot', this.innerText)">${item.ot}</td>
+        <td ${editableAttr} onblur="updateRowData(${index}, 'ip', this.innerText)">${item.ip}</td>
+        <td ${editableAttr} onblur="updateRowData(${index}, 'reg', this.innerText)">${item.reg}</td>
+        <td>
+          <button class="btn-achieve ${item.completed ? 'completed' : ''}" onclick="toggleAchieve(${index})">
+            ${item.completed ? '완료! 🎉' : '준비'}
+          </button>
+        </td>
+        ${isAdmin ? `<td class="admin-col"><button class="btn-delete" onclick="deleteRow(${index})">삭제</button></td>` : ''}
+      `;
+      tbody.appendChild(tr);
+    });
+
+    updateDashboard();
+  }
+
+  function updateRowData(index, field, val) {
+    if (!isAdmin) return;
+    if (field === 'name' || field === 'branch') {
+      teamData[index][field] = val.trim();
+    } else {
+      const numVal = parseInt(val) || 0;
+      teamData[index][field] = numVal;
+
+      if (field === 'reg') {
+        if (numVal >= 1 && !teamData[index].completed) {
+          teamData[index].completed = true;
+          showToast(`🎉 ${teamData[index].name}님 샤먼 달성 완료!`);
+        } else if (numVal === 0) {
+          teamData[index].completed = false;
+        }
+      }
+    }
+    saveData();
+  }
+
+  function toggleAchieve(index) {
+    if (!isAdmin) {
+      showToast('🔒 관리자만 샤먼 상태를 변경할 수 있습니다.');
+      return;
+    }
+    teamData[index].completed = !teamData[index].completed;
+    if (teamData[index].completed) {
+      showToast(`🎉 ${teamData[index].name}님 샤먼 달성 완료!`);
+    }
+    saveData();
+    renderTable();
+  }
+
+  function addRow() {
+    if (!isAdmin) return;
+    const newMember = { branch: '안양SF', name: '신규팀원', ot: 0, ip: 0, reg: 0, completed: false };
+    teamData.push(newMember);
+    saveData();
+    renderTable();
+    showToast('➕ 신규 팀원이 추가되었습니다. 셀을 클릭해 수정하세요.');
+  }
+
+  function deleteRow(index) {
+    if (!isAdmin) return;
+    teamData.splice(index, 1);
+    saveData();
+    renderTable();
+  }
+
+  function updateDashboard() {
+    const total = teamData.length;
+
+    const otCount = teamData.filter(d => (parseInt(d.ot) || 0) > 0).length;
+    const otPercent = total > 0 ? Math.round((otCount / total) * 100) : 0;
+    
+    document.getElementById('ot-summary-stats').innerText = `${otCount} / ${total}명`;
+    document.getElementById('ot-pct-tag').innerText = `${otPercent}%`;
+    document.getElementById('ot-progress-fill').style.width = `${otPercent}%`;
+
+    const regCount = teamData.filter(d => (parseInt(d.reg) || 0) > 0 || d.completed).length;
+    const regPercent = total > 0 ? Math.round((regCount / total) * 100) : 0;
+
+    document.getElementById('reg-summary-stats').innerText = `${regCount} / ${total}명`;
+    document.getElementById('reg-pct-tag').innerText = `${regPercent}%`;
+    document.getElementById('reg-progress-fill').style.width = `${regPercent}%`;
+  }
+
+  function calculateDDay() {
+    const today = new Date();
+    const targetDate = new Date(today.getFullYear(), 7, 13);
+    
+    today.setHours(0, 0, 0, 0);
+    targetDate.setHours(0, 0, 0, 0);
+
+    const diffTime = targetDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    const ddayElem = document.getElementById('dday-counter');
+    if (!ddayElem) return;
+    
+    if (diffDays > 0) {
+      const formattedDays = diffDays < 10 ? `0${diffDays}` : diffDays;
+      ddayElem.innerText = `D-${formattedDays}`;
+    } else if (diffDays === 0) {
+      ddayElem.innerText = `D-00`;
+    } else {
+      const pastDays = Math.abs(diffDays);
+      const formattedDays = pastDays < 10 ? `0${pastDays}` : pastDays;
+      ddayElem.innerText = `D+${formattedDays}`;
+    }
+  }
+
+  function openPhotoModal() { document.getElementById('photo-modal').style.display = 'flex'; }
+  function closePhotoModal() { document.getElementById('photo-modal').style.display = 'none'; }
+
+  function toggleAdminMode() {
+    if (isAdmin) {
+      isAdmin = false;
+      showToast('🔒 관리자 모드가 해제되었습니다.');
+      updateAdminUI();
+    } else {
+      document.getElementById('admin-password-input').value = '';
+      document.getElementById('admin-modal').style.display = 'flex';
+      setTimeout(() => {
+        const pwdInput = document.getElementById('admin-password-input');
+        if (pwdInput) pwdInput.focus();
+      }, 100);
+    }
+  }
+
+  function closeAdminModal() {
+    document.getElementById('admin-modal').style.display = 'none';
+  }
+
+  function submitAdminPassword() {
+    const input = document.getElementById('admin-password-input').value;
+    if (input === ADMIN_PASSWORD) {
+      isAdmin = true;
+      closeAdminModal();
+      showToast('🔓 관리자 로그인 성공! 수치를 수정하면 전원 화면에 즉시 공유됩니다.');
+      updateAdminUI();
+    } else {
+      showToast('❌ 비밀번호가 일치하지 않습니다.');
+    }
+  }
+
+  function updateAdminUI() {
+    const adminBtn = document.getElementById('admin-toggle-btn');
+    const adminStatusTag = document.getElementById('admin-status-tag');
+    const btnAddTeam = document.getElementById('btn-add-team');
+    const adminCols = document.querySelectorAll('.admin-col');
+    const guideMsg = document.getElementById('guide-msg');
+
+    if (isAdmin) {
+      adminBtn.innerText = "🔓 관리자 로그아웃";
+      adminBtn.style.background = "#dc2626";
+      adminStatusTag.innerText = "⚡ 실시간 클라우드 수정 모드 활성화";
+      adminStatusTag.style.color = "#dc2626";
+      btnAddTeam.style.display = "block";
+      guideMsg.innerText = "💡 수정 결과가 클라우드 서버에 즉시 전송되어 카톡 공유자 전원 화면에 공유됩니다.";
+      adminCols.forEach(col => col.style.display = "table-cell");
+    } else {
+      adminBtn.innerText = "🔒 관리자 로그인";
+      adminBtn.style.background = "#0f172a";
+      adminStatusTag.innerText = "👀 읽기 전용 (팀원 실시간 공유 모드)";
+      adminStatusTag.style.color = "#64748b";
+      btnAddTeam.style.display = "none";
+      guideMsg.innerText = "💡 실시간으로 수치가 연동됩니다. 수정은 상단 [🔒 관리자 로그인]을 클릭하세요.";
+      adminCols.forEach(col => col.style.display = "none");
+    }
+    renderTable();
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.innerText = msg;
+    toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); }, 2800);
+  }
+
+  function showSection(type) {
+    document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+    
+    const progressSec = document.getElementById('section-progress');
+    const imageSec = document.getElementById('section-image');
+
+    const vAward = document.getElementById('view-award');
+    const vSchedule = document.getElementById('view-schedule');
+    const vTarget = document.getElementById('view-target');
+
+    vAward.style.display = 'none';
+    vSchedule.style.display = 'none';
+    vTarget.style.display = 'none';
+
+    if (type === 'progress') {
+      document.getElementById('btn-progress').classList.add('active');
+      progressSec.style.display = 'block';
+      imageSec.style.display = 'none';
+    } else {
+      progressSec.style.display = 'none';
+      imageSec.style.display = 'block';
+      
+      let titleText = "";
+      if (type === 'award') {
+        document.getElementById('btn-award').classList.add('active');
+        titleText = "✈️ 수도권사업부 하문 여행 시상";
+        vAward.style.display = 'block';
+      } else if (type === 'schedule') {
+        document.getElementById('btn-schedule').classList.add('active');
+        titleText = "📅 8월 입과 주요 추진 일정";
+        vSchedule.style.display = 'block';
+      } else if (type === 'target') {
+        document.getElementById('btn-target').classList.add('active');
+        titleText = "🎯 지점별 경영 및 등록 목표";
+        vTarget.style.display = 'block';
+      }
+
+      document.getElementById('image-title').innerText = titleText;
+    }
+  }
+</script>
+
+</body>
+</html>
