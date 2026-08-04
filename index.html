@@ -224,6 +224,9 @@
     .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; background-color: #f8fafc; }
     .summary-table .branch-cell { font-size: 15px; font-weight: 900; }
 
+    /* 신규 입력 중인 행 강조 */
+    tr.new-editing-row td { background-color: #fefce8 !important; }
+
     td[contenteditable="true"] { outline: none; }
     td[contenteditable="true"]:focus { outline: 2px solid #0284c7; background-color: #f0f9ff; }
     
@@ -644,7 +647,7 @@
     ? JSON.parse(__firebase_config) 
     : userFirebaseConfig;
 
-  // 기본 지점 목록
+  // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
   // 📋 전체 38명 기본 명단 데이터
@@ -752,7 +755,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v2', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v3', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -828,6 +831,9 @@
 
     candidateList.forEach((item, index) => {
       const tr = document.createElement('tr');
+      if (item.isNewEditing) {
+        tr.className = 'new-editing-row';
+      }
 
       tr.innerHTML = `
         <td class="branch-cell" contenteditable="true" onblur="updateRowData(${index}, 'branch', this.innerText)">${item.branch || '지점'}</td>
@@ -852,7 +858,22 @@
     renderCandidateTable();
   }
 
+  // 🎯 지점별 그룹 자동 정렬 함수
+  function sortCandidatesByBranch() {
+    candidateList.sort((a, b) => {
+      let idxA = branchList.indexOf(a.branch);
+      let idxB = branchList.indexOf(b.branch);
+
+      if (idxA === -1) idxA = 99;
+      if (idxB === -1) idxB = 99;
+
+      return idxA - idxB;
+    });
+  }
+
   function updateRowData(index, field, val) {
+    if (!candidateList[index]) return;
+
     if (field === 'name' || field === 'branch' || field === 'rc') {
       candidateList[index][field] = val.trim();
     } else {
@@ -867,8 +888,15 @@
         }
       }
     }
+
+    // 입력 완료 후 신규 편집 상태 해제 및 지점별 그룹 자동 정렬
+    if (candidateList[index].isNewEditing) {
+      delete candidateList[index].isNewEditing;
+      sortCandidatesByBranch();
+    }
+
     saveData();
-    renderSummaryTable();
+    renderAllTables();
   }
 
   function toggleAchieve(index) {
@@ -877,24 +905,30 @@
     renderAllTables();
   }
 
-  // 🎯 해당 지점 그룹의 맨 윗줄(첫 위치)에 신규 후보자를 추가하는 스마트 함수
+  // 🎯 명단 추가 클릭 시: 전체 맨 위(1번째)에 생성 ➔ 입력 완료 후 해당 지점 그룹으로 이동
   function addRow() {
-    const targetBranch = '안양SF';
-    const newMember = { branch: targetBranch, rc: '유치자', name: '신규후보자', ot: 0, ip: 0, reg: 0, completed: false };
+    const newMember = { 
+      branch: '광명', 
+      rc: '유치자', 
+      name: '신규후보자', 
+      ot: 0, 
+      ip: 0, 
+      reg: 0, 
+      completed: false,
+      isNewEditing: true 
+    };
 
-    // 목록 내에서 해당 지점이 시작하는 첫 번째 위치 탐색
-    const firstBranchIndex = candidateList.findIndex(item => item.branch === targetBranch);
-
-    if (firstBranchIndex !== -1) {
-      // 해당 지점의 맨 윗줄 위치에 신규 항목 삽입
-      candidateList.splice(firstBranchIndex, 0, newMember);
-    } else {
-      // 해당 지점이 없다면 목록 맨 위에 삽입
-      candidateList.unshift(newMember);
-    }
+    // 전체 표의 맨 첫번째(1번 줄)로 삽입
+    candidateList.unshift(newMember);
 
     saveData();
     renderAllTables();
+
+    // 생성된 첫 번째 행으로 자동 스크롤
+    setTimeout(() => {
+      const firstRow = document.querySelector('#candidate-table-body tr');
+      if (firstRow) firstRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
   }
 
   function deleteRow(index) {
@@ -981,11 +1015,11 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 접속하자마자 38명 기본 데이터로 화면 렌더링
+  // ⚡ 접속 시 38명 데이터 로딩
   window.onload = function() {
     calculateDDay();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v2');
+    const saved = localStorage.getItem('xiamen_candidate_data_v3');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
