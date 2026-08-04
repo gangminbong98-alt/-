@@ -198,12 +198,31 @@
     }
     th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
     
-    /* 요약 표 스타일 */
-    .summary-table th { background-color: #0284c7; color: white; border-color: #0284c7; }
-    .summary-table td { background-color: #f8fafc; font-weight: 800; }
-    .summary-table tr.total-row td { background-color: #e0f2fe; color: #0369a1; font-weight: 900; font-size: 13px; border-top: 2px solid #0284c7; }
+    /* 🔍 요약 표 글자 및 숫자 확대 스타일 */
+    .summary-table th { 
+      background-color: #0284c7; 
+      color: white; 
+      border-color: #0284c7; 
+      font-size: 14px; 
+      padding: 9px 4px; 
+    }
+    .summary-table td { 
+      background-color: #f8fafc; 
+      font-weight: 800; 
+      font-size: 15px; 
+      padding: 10px 4px; 
+    }
+    .summary-table tr.total-row td { 
+      background-color: #e0f2fe; 
+      color: #0369a1; 
+      font-weight: 900; 
+      font-size: 16px; 
+      border-top: 2.5px solid #0284c7; 
+      padding: 12px 4px; 
+    }
 
     .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; background-color: #f8fafc; }
+    .summary-table .branch-cell { font-size: 15px; font-weight: 900; }
 
     td[contenteditable="true"] { outline: none; }
     td[contenteditable="true"]:focus { outline: 2px solid #0284c7; background-color: #f0f9ff; }
@@ -628,7 +647,7 @@
   // 기본 지점 목록
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 전체 38명 기본 명단 데이터 (절대 누락되지 않도록 강제지정)
+  // 📋 전체 38명 기본 명단 데이터
   const initialCandidateList = [
     // 광명 (3명)
     { branch: '광명', rc: '류성조', name: '전나래', ot: 1, ip: 1, reg: 0, completed: false },
@@ -706,7 +725,7 @@
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
       docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData');
 
-      // ⚡ 실시간 수치 감지기 (서버 데이터 검증 후 동기화)
+      // ⚡ 실시간 수치 감지기
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
           const data = docSnap.data();
@@ -733,7 +752,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v2', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -840,7 +859,6 @@
       const numVal = parseInt(val) || 0;
       candidateList[index][field] = numVal;
 
-      // 🎯 등록 수치가 1 이상이면 자동으로 '달성! 🎉' 상태로 전환
       if (field === 'reg') {
         if (numVal >= 1 && !candidateList[index].completed) {
           candidateList[index].completed = true;
@@ -950,11 +968,11 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 접속하자마자 38명 명단과 지점별 수치 즉시 렌더링
+  // ⚡ 강제 38명 기본데이터 로딩 및 초기화
   window.onload = function() {
     calculateDDay();
     
-    const saved = localStorage.getItem('xiamen_candidate_data');
+    const saved = localStorage.getItem('xiamen_candidate_data_v2');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -963,6 +981,7 @@
         }
       } catch(e) {}
     }
+    
     renderAllTables();
     initFirebase();
   };
