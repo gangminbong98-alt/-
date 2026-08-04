@@ -198,7 +198,7 @@
     }
     th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
     
-    /* 요약 표 스타일 */
+    /* 🔍 요약 표 글자 및 숫자 확대 스타일 */
     .summary-table th { 
       background-color: #0284c7; 
       color: white; 
@@ -221,14 +221,33 @@
       padding: 12px 4px; 
     }
 
-    .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; background-color: #f8fafc; }
-    .summary-table .branch-cell { font-size: 15px; font-weight: 900; }
+    .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; }
+    .summary-table .branch-cell { font-size: 15px; font-weight: 900; background-color: #f8fafc; }
+
+    /* 🎨 지점별 구분 색상 스타일 (후보자 상세 명단 전용) */
+    tr.branch-kwangmyung td { background-color: #f0f9ff !important; }
+    tr.branch-kwangmyung td.branch-cell { background-color: #e0f2fe !important; color: #0369a1; }
+
+    tr.branch-anyang-seonggong td { background-color: #fefce8 !important; }
+    tr.branch-anyang-seonggong td.branch-cell { background-color: #fef08a !important; color: #854d0e; }
+
+    tr.branch-anyang-bisan td { background-color: #f0fdf4 !important; }
+    tr.branch-anyang-bisan td.branch-cell { background-color: #dcfce7 !important; color: #166534; }
+
+    tr.branch-indeokwon td { background-color: #faf5ff !important; }
+    tr.branch-indeokwon td.branch-cell { background-color: #f3e8ff !important; color: #6b21a8; }
+
+    tr.branch-siheung-sincheon td { background-color: #fff7ed !important; }
+    tr.branch-siheung-sincheon td.branch-cell { background-color: #ffedd5 !important; color: #9a3412; }
+
+    tr.branch-anyang-sf td { background-color: #fdf2f8 !important; }
+    tr.branch-anyang-sf td.branch-cell { background-color: #fce7f3 !important; color: #9d174d; }
 
     /* 신규 입력 중인 행 강조 */
-    tr.new-editing-row td { background-color: #fefce8 !important; }
+    tr.new-editing-row td { background-color: #fef3c7 !important; }
 
     td[contenteditable="true"] { outline: none; }
-    td[contenteditable="true"]:focus { outline: 2px solid #0284c7; background-color: #f0f9ff; }
+    td[contenteditable="true"]:focus { outline: 2px solid #0284c7; background-color: #ffffff !important; }
     
     .btn-achieve { 
       background-color: #64748b; 
@@ -767,6 +786,19 @@
     }
   }
 
+  // 🎨 지점명에 따른 CSS 클래스 반환 함수
+  function getBranchColorClass(branchName) {
+    if (!branchName) return '';
+    const name = branchName.trim();
+    if (name === '광명') return 'branch-kwangmyung';
+    if (name === '안양성공') return 'branch-anyang-seonggong';
+    if (name === '안양비산') return 'branch-anyang-bisan';
+    if (name === '인덕원') return 'branch-indeokwon';
+    if (name === '시흥신천') return 'branch-siheung-sincheon';
+    if (name === '안양SF') return 'branch-anyang-sf';
+    return '';
+  }
+
   // 1️⃣ 지점별 요약 표 (상단) 자동 계산 및 렌더링
   function renderSummaryTable() {
     const tbody = document.getElementById('summary-table-body');
@@ -816,7 +848,7 @@
     tbody.appendChild(totalTr);
   }
 
-  // 2️⃣ 후보자 상세 명단 (하단) 렌더링
+  // 2️⃣ 후보자 상세 명단 (하단) 렌더링 (지점별 배경 색상 구분)
   function renderCandidateTable() {
     const tbody = document.getElementById('candidate-table-body');
     const emptyNotice = document.getElementById('empty-list-notice');
@@ -831,8 +863,14 @@
 
     candidateList.forEach((item, index) => {
       const tr = document.createElement('tr');
+      
+      // 지점별 색상 클래스 적용
+      const branchColorClass = getBranchColorClass(item.branch);
+      if (branchColorClass) {
+        tr.classList.add(branchColorClass);
+      }
       if (item.isNewEditing) {
-        tr.className = 'new-editing-row';
+        tr.classList.add('new-editing-row');
       }
 
       tr.innerHTML = `
@@ -889,7 +927,6 @@
       }
     }
 
-    // 입력 완료 후 신규 편집 상태 해제 및 지점별 그룹 자동 정렬
     if (candidateList[index].isNewEditing) {
       delete candidateList[index].isNewEditing;
       sortCandidatesByBranch();
@@ -905,7 +942,7 @@
     renderAllTables();
   }
 
-  // 🎯 명단 추가 클릭 시: 전체 맨 위(1번째)에 생성 ➔ 입력 완료 후 해당 지점 그룹으로 이동
+  // 🎯 명단 추가 클릭 시: 전체 맨 위(1번째)에 생성 ➔ 입력 완료 후 해당 지점 그룹으로 자동 이동
   function addRow() {
     const newMember = { 
       branch: '광명', 
@@ -918,13 +955,11 @@
       isNewEditing: true 
     };
 
-    // 전체 표의 맨 첫번째(1번 줄)로 삽입
     candidateList.unshift(newMember);
 
     saveData();
     renderAllTables();
 
-    // 생성된 첫 번째 행으로 자동 스크롤
     setTimeout(() => {
       const firstRow = document.querySelector('#candidate-table-body tr');
       if (firstRow) firstRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1015,7 +1050,7 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 접속 시 38명 데이터 로딩
+  // ⚡ 접속 시 38명 기본 데이터로 로딩
   window.onload = function() {
     calculateDDay();
     
