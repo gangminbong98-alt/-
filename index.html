@@ -628,14 +628,14 @@
   // 기본 지점 목록
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 전체 38명 기본 명단 데이터
+  // 📋 전체 38명 기본 명단 데이터 (절대 누락되지 않도록 강제지정)
   const initialCandidateList = [
-    // 광명
+    // 광명 (3명)
     { branch: '광명', rc: '류성조', name: '전나래', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '광명', rc: '이수만', name: '장옥자', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '광명', rc: '이종분', name: '한상희', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 안양성공
+    // 안양성공 (6명)
     { branch: '안양성공', rc: '박순천', name: '이문주', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '박순천', name: '차은경', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '서은희', name: '김지영', ot: 1, ip: 1, reg: 0, completed: false },
@@ -643,7 +643,7 @@
     { branch: '안양성공', rc: '오혜숙', name: '홍재준', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '이서현', name: '정소영', ot: 0, ip: 1, reg: 0, completed: false },
 
-    // 안양비산
+    // 안양비산 (6명)
     { branch: '안양비산', rc: '강판금', name: '김보람', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양비산', rc: '강판금', name: '박세원', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양비산', rc: '강판금', name: '원종철', ot: 1, ip: 1, reg: 0, completed: false },
@@ -651,7 +651,7 @@
     { branch: '안양비산', rc: '이영화', name: 'JIN TAISHUN', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양비산', rc: '홍예미', name: '조상근', ot: 1, ip: 1, reg: 0, completed: false },
 
-    // 인덕원
+    // 인덕원 (7명)
     { branch: '인덕원', rc: '남경애', name: 'SUN YINGLAN', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '문정숙', name: '김현주', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '박찬순', name: '김남화', ot: 1, ip: 1, reg: 0, completed: false },
@@ -660,7 +660,7 @@
     { branch: '인덕원', rc: '임종분', name: '이서윤', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '임종분', name: '한경옥', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 시흥신천
+    // 시흥신천 (8명)
     { branch: '시흥신천', rc: '김보민', name: '진선숙', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '김원경', name: '백미영', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '박지우', name: '김설매', ot: 0, ip: 1, reg: 0, completed: false },
@@ -670,7 +670,7 @@
     { branch: '시흥신천', rc: '장근희', name: '문진주', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '차명옥', name: '남예리', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 안양SF
+    // 안양SF (8명)
     { branch: '안양SF', rc: '김가은', name: '박상진', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양SF', rc: '김가은', name: '엄인해', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양SF', rc: '김가은', name: '여창근', ot: 1, ip: 0, reg: 0, completed: false },
@@ -681,7 +681,6 @@
     { branch: '안양SF', rc: '이경환', name: '황민희', ot: 1, ip: 0, reg: 0, completed: false }
   ];
 
-  // 후보자 상세 명단 (즉시 기본 데이터 로딩)
   let candidateList = JSON.parse(JSON.stringify(initialCandidateList));
 
   let db = null;
@@ -707,14 +706,22 @@
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
       docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData');
 
-      // ⚡ 실시간 수치 감지기
+      // ⚡ 실시간 수치 감지기 (서버 데이터 검증 후 동기화)
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
           const data = docSnap.data();
-          if (data && Array.isArray(data.candidates) && data.candidates.length > 0) {
+          if (data && Array.isArray(data.candidates) && data.candidates.length >= 10) {
             candidateList = data.candidates;
             renderAllTables();
+          } else {
+            candidateList = JSON.parse(JSON.stringify(initialCandidateList));
+            saveData();
+            renderAllTables();
           }
+        } else {
+          candidateList = JSON.parse(JSON.stringify(initialCandidateList));
+          saveData();
+          renderAllTables();
         }
       }, (err) => {
         console.error("Firestore snapshot error:", err);
@@ -787,7 +794,7 @@
     tbody.appendChild(totalTr);
   }
 
-  // 2️⃣ 후보자 상세 명단 (하단) 렌더링 - 즉시 화면 표시
+  // 2️⃣ 후보자 상세 명단 (하단) 렌더링
   function renderCandidateTable() {
     const tbody = document.getElementById('candidate-table-body');
     const emptyNotice = document.getElementById('empty-list-notice');
@@ -943,13 +950,18 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 페이지가 열리자마자 38명 명단 즉시 출력
+  // ⚡ 접속하자마자 38명 명단과 지점별 수치 즉시 렌더링
   window.onload = function() {
     calculateDDay();
     
     const saved = localStorage.getItem('xiamen_candidate_data');
     if (saved) {
-      try { candidateList = JSON.parse(saved); } catch(e) {}
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= 10) {
+          candidateList = parsed;
+        }
+      } catch(e) {}
     }
     renderAllTables();
     initFirebase();
