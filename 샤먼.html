@@ -114,29 +114,13 @@
       background: linear-gradient(135deg, #ef4444, #dc2626);
       color: white;
       border-radius: 10px;
-      padding: 4px 8px;
-      font-size: 10px;
+      padding: 6px 12px;
+      font-size: 11px;
       font-weight: 900;
       text-align: center;
       box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
       line-height: 1.2;
       border: 1px solid rgba(255, 255, 255, 0.8);
-      white-space: nowrap;
-    }
-
-    .btn-top-admin {
-      background: #0f172a;
-      color: #fde047;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      padding: 4px 8px;
-      border-radius: 16px;
-      font-size: 10px;
-      font-weight: 900;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       white-space: nowrap;
     }
 
@@ -201,95 +185,49 @@
 
     .content-card { background: #ffffff; }
 
-    .dashboard-dual-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .summary-card-half {
-      background: #f0f9ff;
-      border: 1.5px solid #7dd3fc;
-      border-radius: 14px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    }
-    .summary-card-half.reg-card {
-      background: #fef2f2;
-      border-color: #fca5a5;
-    }
-    
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .card-title {
-      font-size: 12px;
-      font-weight: 900;
-      color: #0369a1;
-      white-space: nowrap;
-    }
-    .reg-card .card-title { color: #dc2626; }
-    
-    .card-pct-tag {
-      font-size: 11px;
-      font-weight: 900;
-      color: #0284c7;
-      background: #e0f2fe;
-      padding: 1px 6px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-    .reg-card .card-pct-tag {
-      color: #dc2626;
-      background: #fee2e2;
-    }
-
-    .card-count-val {
-      font-size: 14px;
-      font-weight: 900;
-      color: #0f172a;
-      margin-top: 2px;
-      white-space: nowrap;
-    }
-
-    .card-sub-label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #64748b;
-      white-space: nowrap;
-    }
-
-    .progress-bar-bg { width: 100%; height: 8px; background: #cbd5e1; border-radius: 10px; overflow: hidden; margin-top: 4px; }
-    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #38bdf8, #0284c7); border-radius: 10px; transition: width 0.5s; }
-    .progress-bar-fill.reg-fill { background: linear-gradient(90deg, #f87171, #dc2626); }
-
     .table-container { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .section-title { font-size: 15px; font-weight: 900; color: #0f172a; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .section-title { font-size: 15px; font-weight: 900; color: #0f172a; margin-top: 6px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
     
-    table { width: 100%; border-collapse: collapse; text-align: center; }
+    table { width: 100%; border-collapse: collapse; text-align: center; margin-bottom: 14px; }
     th, td {
       border: 1px solid #cbd5e1;
-      padding: 8px 3px;
+      padding: 7px 3px;
       font-size: 12px;
       font-weight: 700;
       white-space: nowrap;
     }
     th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
     
-    .branch-cell { font-size: 11px; color: #475569; font-weight: 800; background-color: #fafafa; }
+    /* 요약 표 스타일 */
+    .summary-table th { background-color: #0284c7; color: white; border-color: #0284c7; }
+    .summary-table td { background-color: #f8fafc; font-weight: 800; }
+    .summary-table tr.total-row td { background-color: #e0f2fe; color: #0369a1; font-weight: 900; font-size: 13px; border-top: 2px solid #0284c7; }
 
+    .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; background-color: #f8fafc; }
+
+    td[contenteditable="true"] { outline: none; }
     td[contenteditable="true"]:focus { outline: 2px solid #0284c7; background-color: #f0f9ff; }
     
-    .btn-achieve { background-color: #64748b; color: white; border: none; padding: 5px 8px; border-radius: 6px; cursor: pointer; font-weight: 800; font-size: 11px; white-space: nowrap; }
-    .btn-achieve.completed { background-color: #0284c7; }
+    .btn-achieve { 
+      background-color: #64748b; 
+      color: white; 
+      border: none; 
+      padding: 4px 8px; 
+      border-radius: 6px; 
+      cursor: pointer; 
+      font-weight: 800; 
+      font-size: 11px; 
+      white-space: nowrap; 
+    }
+    .btn-achieve.completed { 
+      background-color: #0284c7; 
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+    }
 
-    .btn-add { background: #0284c7; color: white; border: none; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+    .btn-add { background: #0284c7; color: white; border: none; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; }
     .btn-delete { background: #ef4444; color: white; border: none; padding: 3px 6px; border-radius: 4px; font-size: 10px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+
+    .empty-msg { text-align: center; color: #64748b; font-size: 12px; padding: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; margin-bottom: 10px; font-weight: 700; }
 
     .image-viewer { display: none; text-align: center; }
 
@@ -372,25 +310,6 @@
     }
     .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
     .gallery-caption { font-size: 12px; font-weight: 900; color: #0369a1; padding: 8px 4px; text-align: center; background: #f0f9ff; border-top: 1px solid #e2e8f0; }
-
-    .toast-popup {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: #0f172a;
-      color: #fde047;
-      padding: 12px 22px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 900;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-      z-index: 1000;
-      text-align: center;
-      max-width: 90%;
-    }
-    .toast-popup.show { transform: translateX(-50%) translateY(0); }
   </style>
 </head>
 <body>
@@ -411,7 +330,6 @@
         <div class="badge-box">
           9월 등록<br>✈️ 11월 출발
         </div>
-        <button class="btn-top-admin" id="admin-toggle-btn" onclick="toggleAdminMode()">🔒 관리자 로그인</button>
       </div>
     </div>
 
@@ -451,60 +369,53 @@
 
     <div class="content-card">
       <div id="section-progress" class="table-container">
-        
-        <!-- 📊 모바일 대응 대시보드 카드 2개 -->
-        <div class="dashboard-dual-grid">
-          <div class="summary-card-half">
-            <div class="card-header">
-              <span class="card-title">📌 OT 현황</span>
-              <span class="card-pct-tag" id="ot-pct-tag">0%</span>
-            </div>
-            <div class="card-count-val" id="ot-summary-stats">0 / 0명</div>
-            <div class="card-sub-label">OT 진행 수치 (실시간 연동)</div>
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill" id="ot-progress-fill"></div>
-            </div>
-          </div>
 
-          <div class="summary-card-half reg-card">
-            <div class="card-header">
-              <span class="card-title">✈️ 등록 현황</span>
-              <span class="card-pct-tag" id="reg-pct-tag">0%</span>
-            </div>
-            <div class="card-count-val" id="reg-summary-stats">0 / 0명</div>
-            <div class="card-sub-label">최종 등록 달성률 (실시간 연동)</div>
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill reg-fill" id="reg-progress-fill"></div>
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align: right; margin-bottom: 8px;">
-          <span id="admin-status-tag" style="font-size:11px; color:#64748b; font-weight:800;">👀 읽기 전용 (팀원 실시간 공유 모드)</span>
-        </div>
-
+        <!-- 1️⃣ 지점별 요약 현황 (상단 표) -->
         <div class="section-title">
-          <span>📋 도입진척 현황</span>
-          <button class="btn-add" id="btn-add-team" onclick="addRow()" style="display:none;">+ 팀원 추가</button>
+          <span>🏢 지점별 요약 현황</span>
+        </div>
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th style="width:28%;">지점</th>
+              <th style="width:24%;">OT</th>
+              <th style="width:24%;">입과확정</th>
+              <th style="width:24%;">등록</th>
+            </tr>
+          </thead>
+          <tbody id="summary-table-body">
+            <!-- 동적 자동 합산 -->
+          </tbody>
+        </table>
+
+        <!-- 2️⃣ 후보자 상세 명단 (하단 표) -->
+        <div class="section-title">
+          <span>📋 후보자 상세 명단</span>
+          <button class="btn-add" onclick="addRow()">+ 명단 추가</button>
+        </div>
+
+        <div id="empty-list-notice" class="empty-msg" style="display:none;">
+          📝 등록된 후보자가 없습니다.<br>[+ 명단 추가] 버튼을 터치해 명단을 등록하세요.
         </div>
 
         <table id="progress-table">
           <thead>
             <tr>
-              <th style="width:20%;">지점</th>
-              <th style="width:22%;">성명</th>
-              <th style="width:13%;">OT</th>
-              <th style="width:13%;">입과</th>
-              <th style="width:13%;">등록</th>
-              <th style="width:19%;">샤먼</th>
-              <th class="admin-col" style="display:none; width:12%;">관리</th>
+              <th style="width:16%;">지점명</th>
+              <th style="width:15%;">RC</th>
+              <th style="width:17%;">후보자</th>
+              <th style="width:10%;">OT</th>
+              <th style="width:13%;">입과확정</th>
+              <th style="width:10%;">등록</th>
+              <th style="width:12%;">샤먼</th>
+              <th style="width:7%;">삭제</th>
             </tr>
           </thead>
-          <tbody id="table-body">
-            <!-- JS 동적 생성 -->
+          <tbody id="candidate-table-body">
+            <!-- 동적 생성 -->
           </tbody>
         </table>
-        <p style="margin-top:10px; font-size:11px; color:#64748b; font-weight:700;" id="guide-msg">💡 관리자가 수치를 수정하면 전원 화면에 실시간으로 자동 공유됩니다.</p>
+        <p style="margin-top:10px; font-size:11px; color:#64748b; font-weight:700;">💡 표의 칸을 터치하면 수치를 자유롭게 수정할 수 있으며 실시간 연동됩니다.</p>
       </div>
 
       <div id="section-image" class="image-viewer">
@@ -664,23 +575,7 @@
   </div>
 </div>
 
-<!-- 🔒 관리자 로그인 전용 커스텀 모달 팝업 -->
-<div class="modal-overlay" id="admin-modal">
-  <div class="modal-box" style="max-width: 320px; text-align: center;">
-    <div class="modal-header">
-      <div class="modal-title" style="font-size:16px;">🔒 관리자 로그인</div>
-      <button class="btn-close-modal" onclick="closeAdminModal()">✕</button>
-    </div>
-    <p style="font-size:12px; color:#64748b; margin-bottom:12px; font-weight:700;">관리자 비밀번호를 입력해 주세요.</p>
-    <input type="password" id="admin-password-input" placeholder="비밀번호 4자리" style="width:100%; padding:10px; border:1.5px solid #cbd5e1; border-radius:10px; font-size:14px; text-align:center; margin-bottom:12px; font-weight:900;" onkeyup="if(event.key==='Enter') submitAdminPassword()">
-    <div style="display:flex; gap:8px;">
-      <button onclick="closeAdminModal()" style="flex:1; padding:8px; border:1px solid #cbd5e1; background:#f1f5f9; border-radius:8px; font-weight:800; font-size:12px; cursor:pointer;">취소</button>
-      <button onclick="submitAdminPassword()" style="flex:1; padding:8px; border:none; background:#0284c7; color:white; border-radius:8px; font-weight:900; font-size:12px; cursor:pointer;">로그인</button>
-    </div>
-  </div>
-</div>
-
-<!-- 🖼️ 팝업: 정확한 샤먼 핵심 명소 4선 사진 -->
+<!-- 🖼️ 샤먼 명소 모달 -->
 <div class="modal-overlay" id="photo-modal">
   <div class="modal-box">
     <div class="modal-header">
@@ -710,293 +605,298 @@
   </div>
 </div>
 
-<div class="toast-popup" id="toast">🎉 축하합니다! 샤먼 여행 달성!</div>
+<!-- 🔥 Firebase 공식 SDK 실시간 연동 엔진 -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+  import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-<script>
-  const defaultTeamData = [
-    // [광명] (16명)
-    { branch: '광명', name: '김연옥', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '유현', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '전세원', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '조현숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '최선자', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '서순자', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '안은숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '이화', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '임화순', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '김영란', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '정연희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '푸른', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '천유진', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '김영선', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '박나희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '광명', name: '박종숙', ot: 0, ip: 0, reg: 0, completed: false },
-
-    // [안양성공] (20명)
-    { branch: '안양성공', name: '김명숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '최문희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '서연', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '박지혜', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '우향이', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '김향순', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '김연희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '조영옥', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '서은희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '김미화', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '김영희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '나래', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '이서현', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '조미경', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '이승렬', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '최춘례', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '박순천', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '정경자', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '조옥희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양성공', name: '최봉문', ot: 0, ip: 0, reg: 0, completed: false },
-
-    // [안양비산] (24명)
-    { branch: '안양비산', name: '이화숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '김영화', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '홍경숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '서경자', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '이영화', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '김월선', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '김희숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '박명숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '곽경선', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '서지호', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '강판금', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '김예섭', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '진솔', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '황정욱', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '신예숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '김성단', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '이안숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '정용재', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '윤금이', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '유수환', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '윤예화', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '황종순', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '송규섭', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', name: '이혜옥', ot: 0, ip: 0, reg: 0, completed: false },
-
-    // [인덕원] (19명)
-    { branch: '인덕원', name: '김병미', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '남경애', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '정태연', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '임나경', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '박창오', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '서옥련', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '정유리', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '유명현', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '김연화', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '문정숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '신연화', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '이창애', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '김진숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '박현임', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '이은미', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '이병숙', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '김향옥', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '임종분', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', name: '정귀선', ot: 0, ip: 0, reg: 0, completed: false },
-
-    // [시흥신천] (16명)
-    { branch: '시흥신천', name: '윤정덕', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '김동미', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '편민자', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '홍미영', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '김하영', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '강도영', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '배미정', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '윤광', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '김선태', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '이민정', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '이정애', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '조춘희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '박지우', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '김원경', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '장근희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '시흥신천', name: '허유정', ot: 0, ip: 0, reg: 0, completed: false },
-
-    // [안양SF] - 신규 4명(이경환, 김명희, 김미례, 유노을) 포함 총 11명
-    { branch: '안양SF', name: '김장희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '한미선', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '한미은', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '김혜선', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '김가은', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '김희정', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '손주희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '이경환', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '김명희', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '김미례', ot: 0, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', name: '유노을', ot: 0, ip: 0, reg: 0, completed: false }
-  ];
-
-  let teamData = [];
-  let isAdmin = false;
-  const ADMIN_PASSWORD = "0569";
-
-  // 🌐 초간단 전세계 실시간 공용 클라우드 API (JSONbin 엔드포인트)
-  const CLOUD_API_URL = "https://api.jsonbin.io/v3/b/669d1a8ce41b4d34e414c2b9";
-
-  window.onload = function() {
-    calculateDDay();
-    loadCloudData();
-    // 🔄 4초마다 카톡 공유자 전원 실시간 자동 동기화
-    setInterval(loadCloudData, 4000);
+  // 🔴 Firebase 설정값
+  const userFirebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
   };
 
-  // ☁️ 클라우드 데이터 동기화 함수
-  async function loadCloudData() {
+  const firebaseConfig = (typeof __firebase_config !== 'undefined' && __firebase_config) 
+    ? JSON.parse(__firebase_config) 
+    : userFirebaseConfig;
+
+  // 기본 지점 목록
+  const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
+
+  // 📋 이미지 1000075319.jpg 기준 전체 38명 명단 데이터
+  const initialCandidateList = [
+    // 광명
+    { branch: '광명', rc: '류성조', name: '전나래', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '광명', rc: '이수만', name: '장옥자', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '광명', rc: '이종분', name: '한상희', ot: 1, ip: 0, reg: 0, completed: false },
+
+    // 안양성공
+    { branch: '안양성공', rc: '박순천', name: '이문주', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양성공', rc: '박순천', name: '차은경', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양성공', rc: '서은희', name: '김지영', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양성공', rc: '서은희', name: '임진선', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '안양성공', rc: '오혜숙', name: '홍재준', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양성공', rc: '이서현', name: '정소영', ot: 0, ip: 1, reg: 0, completed: false },
+
+    // 안양비산
+    { branch: '안양비산', rc: '강판금', name: '김보람', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양비산', rc: '강판금', name: '박세원', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', rc: '강판금', name: '원종철', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양비산', rc: '유경희', name: '김윤정', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양비산', rc: '이영화', name: 'JIN TAISHUN', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', rc: '홍예미', name: '조상근', ot: 1, ip: 1, reg: 0, completed: false },
+
+    // 인덕원
+    { branch: '인덕원', rc: '남경애', name: 'SUN YINGLAN', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '인덕원', rc: '문정숙', name: '김현주', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '인덕원', rc: '박찬순', name: '김남화', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '인덕원', rc: '박찬순', name: '황우선', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '인덕원', rc: '신연화', name: '한순자', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', rc: '임종분', name: '이서윤', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '인덕원', rc: '임종분', name: '한경옥', ot: 1, ip: 0, reg: 0, completed: false },
+
+    // 시흥신천
+    { branch: '시흥신천', rc: '김보민', name: '진선숙', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '김원경', name: '백미영', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '김설매', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '김정희', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '박현석', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '장근희', name: '김도연', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '장근희', name: '문진주', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '차명옥', name: '남예리', ot: 1, ip: 0, reg: 0, completed: false },
+
+    // 안양SF
+    { branch: '안양SF', rc: '김가은', name: '박상진', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양SF', rc: '김가은', name: '엄인해', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', rc: '김가은', name: '여창근', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', rc: '김명희', name: '김가희', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양SF', rc: '김장희', name: '노유아', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '안양SF', rc: '박영혜', name: '김선정', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양SF', rc: '이경환', name: '유지은', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양SF', rc: '이경환', name: '황민희', ot: 1, ip: 0, reg: 0, completed: false }
+  ];
+
+  // 후보자 상세 명단
+  let candidateList = [];
+
+  let db = null;
+  let docRef = null;
+
+  // 🔥 Firebase 엔진 초기화
+  async function initFirebase() {
     try {
-      const response = await fetch(CLOUD_API_URL + "/latest", {
-        headers: { "X-Bin-Meta": "false" }
-      });
-      if (response.ok) {
-        const cloudList = await response.json();
-        if (Array.isArray(cloudList) && cloudList.length > 0) {
-          teamData = syncWithDefault(cloudList);
-          renderTable();
-          return;
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      db = getFirestore(app);
+
+      try {
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          await signInAnonymously(auth);
         }
+      } catch(authErr) {
+        console.warn("Auth warning:", authErr);
       }
+
+      const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData');
+
+      // ⚡ 실시간 수치 감지기
+      onSnapshot(docRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data && Array.isArray(data.candidates) && data.candidates.length > 0) {
+            candidateList = syncWithDefault(data.candidates);
+            renderAllTables();
+          } else {
+            candidateList = [...initialCandidateList];
+            saveData();
+            renderAllTables();
+          }
+        } else {
+          candidateList = [...initialCandidateList];
+          saveData();
+          renderAllTables();
+        }
+      }, (err) => {
+        console.error("Firestore snapshot error:", err);
+        loadLocalFallback();
+      });
     } catch(e) {
-      console.log("Cloud load fallback");
-    }
-    
-    // 실패 시 로컬 보완
-    if (teamData.length === 0) {
-      const saved = localStorage.getItem('xiamen_team_data');
-      teamData = saved ? syncWithDefault(JSON.parse(saved)) : defaultTeamData;
-      renderTable();
+      console.log("Firebase Init Fallback", e);
+      loadLocalFallback();
     }
   }
 
   function syncWithDefault(incomingData) {
+    if (!incomingData || incomingData.length === 0) {
+      return [...initialCandidateList];
+    }
     let merged = [...incomingData];
-    defaultTeamData.forEach(defItem => {
-      const exists = merged.some(m => m.name === defItem.name && m.branch === defItem.branch);
-      if (!exists) {
-        merged.push(defItem);
+    initialCandidateList.forEach(initItem => {
+      const foundIndex = merged.findIndex(m => m.name === initItem.name && m.branch === initItem.branch);
+      if (foundIndex === -1) {
+        merged.push(initItem);
+      } else {
+        // 명단에 있는 항목의 OT 및 입과 수치를 기본 수치로 보정
+        if (merged[foundIndex].ot === undefined) merged[foundIndex].ot = initItem.ot;
+        if (merged[foundIndex].ip === undefined) merged[foundIndex].ip = initItem.ip;
       }
     });
     return merged;
   }
 
-  async function saveData() {
-    // 1. 휴대폰 로컬 저장
-    try {
-      localStorage.setItem('xiamen_team_data', JSON.stringify(teamData));
-    } catch(e) {}
-
-    // 2. 실시간 인터넷 클라우드 서버에 저장 (공유받은 사람 전원에게 실시간 전송!)
-    try {
-      await fetch(CLOUD_API_URL, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(teamData)
-      });
-    } catch(e) {
-      console.log("Cloud save fallback");
-    }
-
-    updateDashboard();
+  function loadLocalFallback() {
+    const saved = localStorage.getItem('xiamen_candidate_data');
+    candidateList = saved ? syncWithDefault(JSON.parse(saved)) : [...initialCandidateList];
+    renderAllTables();
   }
 
-  function renderTable() {
-    const tbody = document.getElementById('table-body');
+  async function saveData() {
+    try {
+      localStorage.setItem('xiamen_candidate_data', JSON.stringify(candidateList));
+    } catch(e) {}
+
+    if (db && docRef) {
+      try {
+        await setDoc(docRef, { candidates: candidateList, updatedAt: Date.now() });
+      } catch(e) {
+        console.error("Firebase Save Error:", e);
+      }
+    }
+  }
+
+  // 1️⃣ 지점별 요약 표 (상단) 자동 계산 및 렌더링
+  function renderSummaryTable() {
+    const tbody = document.getElementById('summary-table-body');
     if (!tbody) return;
     tbody.innerHTML = '';
 
-    teamData.forEach((item, index) => {
-      const tr = document.createElement('tr');
-      const editableAttr = isAdmin ? 'contenteditable="true"' : '';
+    let totalOt = 0;
+    let totalIp = 0;
+    let totalReg = 0;
 
+    branchList.forEach(bName => {
+      let branchOt = 0;
+      let branchIp = 0;
+      let branchReg = 0;
+
+      candidateList.forEach(c => {
+        if (c.branch === bName) {
+          branchOt += (parseInt(c.ot) || 0);
+          branchIp += (parseInt(c.ip) || 0);
+          branchReg += (parseInt(c.reg) || 0);
+        }
+      });
+
+      totalOt += branchOt;
+      totalIp += branchIp;
+      totalReg += branchReg;
+
+      const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td class="branch-cell" ${editableAttr} onblur="updateRowData(${index}, 'branch', this.innerText)">${item.branch || '지점'}</td>
-        <td ${editableAttr} onblur="updateRowData(${index}, 'name', this.innerText)">${item.name}</td>
-        <td ${editableAttr} onblur="updateRowData(${index}, 'ot', this.innerText)">${item.ot}</td>
-        <td ${editableAttr} onblur="updateRowData(${index}, 'ip', this.innerText)">${item.ip}</td>
-        <td ${editableAttr} onblur="updateRowData(${index}, 'reg', this.innerText)">${item.reg}</td>
-        <td>
-          <button class="btn-achieve ${item.completed ? 'completed' : ''}" onclick="toggleAchieve(${index})">
-            ${item.completed ? '완료! 🎉' : '준비'}
-          </button>
-        </td>
-        ${isAdmin ? `<td class="admin-col"><button class="btn-delete" onclick="deleteRow(${index})">삭제</button></td>` : ''}
+        <td class="branch-cell">${bName}</td>
+        <td>${branchOt}</td>
+        <td>${branchIp}</td>
+        <td>${branchReg}</td>
       `;
       tbody.appendChild(tr);
     });
 
-    updateDashboard();
+    // 지역단 (합계) 행
+    const totalTr = document.createElement('tr');
+    totalTr.className = 'total-row';
+    totalTr.innerHTML = `
+      <td>지역단 (합계)</td>
+      <td>${totalOt}</td>
+      <td>${totalIp}</td>
+      <td>${totalReg}</td>
+    `;
+    tbody.appendChild(totalTr);
+  }
+
+  // 2️⃣ 후보자 상세 명단 (하단) 렌더링 - 누구든 직접 편집 가능
+  function renderCandidateTable() {
+    const tbody = document.getElementById('candidate-table-body');
+    const emptyNotice = document.getElementById('empty-list-notice');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    if (candidateList.length === 0) {
+      if (emptyNotice) emptyNotice.style.display = 'block';
+    } else {
+      if (emptyNotice) emptyNotice.style.display = 'none';
+    }
+
+    candidateList.forEach((item, index) => {
+      const tr = document.createElement('tr');
+
+      tr.innerHTML = `
+        <td class="branch-cell" contenteditable="true" onblur="updateRowData(${index}, 'branch', this.innerText)">${item.branch || '지점'}</td>
+        <td contenteditable="true" onblur="updateRowData(${index}, 'rc', this.innerText)">${item.rc || ''}</td>
+        <td contenteditable="true" onblur="updateRowData(${index}, 'name', this.innerText)">${item.name || ''}</td>
+        <td contenteditable="true" onblur="updateRowData(${index}, 'ot', this.innerText)">${item.ot ?? 0}</td>
+        <td contenteditable="true" onblur="updateRowData(${index}, 'ip', this.innerText)">${item.ip ?? 0}</td>
+        <td contenteditable="true" onblur="updateRowData(${index}, 'reg', this.innerText)">${item.reg ?? 0}</td>
+        <td>
+          <button class="btn-achieve ${item.completed ? 'completed' : ''}" onclick="toggleAchieve(${index})">
+            ${item.completed ? '달성! 🎉' : '준비'}
+          </button>
+        </td>
+        <td><button class="btn-delete" onclick="deleteRow(${index})">삭제</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderAllTables() {
+    renderSummaryTable();
+    renderCandidateTable();
   }
 
   function updateRowData(index, field, val) {
-    if (!isAdmin) return;
-    if (field === 'name' || field === 'branch') {
-      teamData[index][field] = val.trim();
+    if (field === 'name' || field === 'branch' || field === 'rc') {
+      candidateList[index][field] = val.trim();
     } else {
       const numVal = parseInt(val) || 0;
-      teamData[index][field] = numVal;
+      candidateList[index][field] = numVal;
 
+      // 🎯 등록 수치가 1 이상이면 자동으로 '달성! 🎉' 상태로 전환
       if (field === 'reg') {
-        if (numVal >= 1 && !teamData[index].completed) {
-          teamData[index].completed = true;
-          showToast(`🎉 ${teamData[index].name}님 샤먼 달성 완료!`);
+        if (numVal >= 1 && !candidateList[index].completed) {
+          candidateList[index].completed = true;
         } else if (numVal === 0) {
-          teamData[index].completed = false;
+          candidateList[index].completed = false;
         }
       }
     }
     saveData();
+    renderSummaryTable();
   }
 
   function toggleAchieve(index) {
-    if (!isAdmin) {
-      showToast('🔒 관리자만 샤먼 상태를 변경할 수 있습니다.');
-      return;
-    }
-    teamData[index].completed = !teamData[index].completed;
-    if (teamData[index].completed) {
-      showToast(`🎉 ${teamData[index].name}님 샤먼 달성 완료!`);
-    }
+    candidateList[index].completed = !candidateList[index].completed;
     saveData();
-    renderTable();
+    renderAllTables();
   }
 
   function addRow() {
-    if (!isAdmin) return;
-    const newMember = { branch: '안양SF', name: '신규팀원', ot: 0, ip: 0, reg: 0, completed: false };
-    teamData.push(newMember);
+    const newMember = { branch: '안양SF', rc: '유치자', name: '신규후보자', ot: 0, ip: 0, reg: 0, completed: false };
+    candidateList.push(newMember);
     saveData();
-    renderTable();
-    showToast('➕ 신규 팀원이 추가되었습니다. 셀을 클릭해 수정하세요.');
+    renderAllTables();
   }
 
   function deleteRow(index) {
-    if (!isAdmin) return;
-    teamData.splice(index, 1);
+    candidateList.splice(index, 1);
     saveData();
-    renderTable();
-  }
-
-  function updateDashboard() {
-    const total = teamData.length;
-
-    const otCount = teamData.filter(d => (parseInt(d.ot) || 0) > 0).length;
-    const otPercent = total > 0 ? Math.round((otCount / total) * 100) : 0;
-    
-    document.getElementById('ot-summary-stats').innerText = `${otCount} / ${total}명`;
-    document.getElementById('ot-pct-tag').innerText = `${otPercent}%`;
-    document.getElementById('ot-progress-fill').style.width = `${otPercent}%`;
-
-    const regCount = teamData.filter(d => (parseInt(d.reg) || 0) > 0 || d.completed).length;
-    const regPercent = total > 0 ? Math.round((regCount / total) * 100) : 0;
-
-    document.getElementById('reg-summary-stats').innerText = `${regCount} / ${total}명`;
-    document.getElementById('reg-pct-tag').innerText = `${regPercent}%`;
-    document.getElementById('reg-progress-fill').style.width = `${regPercent}%`;
+    renderAllTables();
   }
 
   function calculateDDay() {
@@ -1026,71 +926,6 @@
 
   function openPhotoModal() { document.getElementById('photo-modal').style.display = 'flex'; }
   function closePhotoModal() { document.getElementById('photo-modal').style.display = 'none'; }
-
-  function toggleAdminMode() {
-    if (isAdmin) {
-      isAdmin = false;
-      showToast('🔒 관리자 모드가 해제되었습니다.');
-      updateAdminUI();
-    } else {
-      document.getElementById('admin-password-input').value = '';
-      document.getElementById('admin-modal').style.display = 'flex';
-      setTimeout(() => {
-        const pwdInput = document.getElementById('admin-password-input');
-        if (pwdInput) pwdInput.focus();
-      }, 100);
-    }
-  }
-
-  function closeAdminModal() {
-    document.getElementById('admin-modal').style.display = 'none';
-  }
-
-  function submitAdminPassword() {
-    const input = document.getElementById('admin-password-input').value;
-    if (input === ADMIN_PASSWORD) {
-      isAdmin = true;
-      closeAdminModal();
-      showToast('🔓 관리자 로그인 성공! 수치를 수정하면 전원 화면에 즉시 공유됩니다.');
-      updateAdminUI();
-    } else {
-      showToast('❌ 비밀번호가 일치하지 않습니다.');
-    }
-  }
-
-  function updateAdminUI() {
-    const adminBtn = document.getElementById('admin-toggle-btn');
-    const adminStatusTag = document.getElementById('admin-status-tag');
-    const btnAddTeam = document.getElementById('btn-add-team');
-    const adminCols = document.querySelectorAll('.admin-col');
-    const guideMsg = document.getElementById('guide-msg');
-
-    if (isAdmin) {
-      adminBtn.innerText = "🔓 관리자 로그아웃";
-      adminBtn.style.background = "#dc2626";
-      adminStatusTag.innerText = "⚡ 실시간 클라우드 수정 모드 활성화";
-      adminStatusTag.style.color = "#dc2626";
-      btnAddTeam.style.display = "block";
-      guideMsg.innerText = "💡 수정 결과가 클라우드 서버에 즉시 전송되어 카톡 공유자 전원 화면에 공유됩니다.";
-      adminCols.forEach(col => col.style.display = "table-cell");
-    } else {
-      adminBtn.innerText = "🔒 관리자 로그인";
-      adminBtn.style.background = "#0f172a";
-      adminStatusTag.innerText = "👀 읽기 전용 (팀원 실시간 공유 모드)";
-      adminStatusTag.style.color = "#64748b";
-      btnAddTeam.style.display = "none";
-      guideMsg.innerText = "💡 실시간으로 수치가 연동됩니다. 수정은 상단 [🔒 관리자 로그인]을 클릭하세요.";
-      adminCols.forEach(col => col.style.display = "none");
-    }
-    renderTable();
-  }
-
-  function showToast(msg) {
-    const toast = document.getElementById('toast');
-    toast.innerText = msg;
-    toast.classList.add('show');
-    setTimeout(() => { toast.classList.remove('show'); }, 2800);
-  }
 
   function showSection(type) {
     document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
@@ -1132,7 +967,22 @@
       document.getElementById('image-title').innerText = titleText;
     }
   }
+
+  // 글로벌 바인딩
+  window.openPhotoModal = openPhotoModal;
+  window.closePhotoModal = closePhotoModal;
+  window.addRow = addRow;
+  window.deleteRow = deleteRow;
+  window.toggleAchieve = toggleAchieve;
+  window.updateRowData = updateRowData;
+  window.showSection = showSection;
+
+  window.onload = function() {
+    calculateDDay();
+    initFirebase();
+  };
 </script>
 
 </body>
 </html>
+
