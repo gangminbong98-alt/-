@@ -628,7 +628,7 @@
   // 기본 지점 목록
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 이미지 1000075319.jpg 기준 전체 38명 명단 데이터
+  // 📋 전체 38명 기본 명단 데이터
   const initialCandidateList = [
     // 광명
     { branch: '광명', rc: '류성조', name: '전나래', ot: 1, ip: 1, reg: 0, completed: false },
@@ -681,8 +681,8 @@
     { branch: '안양SF', rc: '이경환', name: '황민희', ot: 1, ip: 0, reg: 0, completed: false }
   ];
 
-  // 후보자 상세 명단
-  let candidateList = [];
+  // 후보자 상세 명단 (즉시 기본 데이터 로딩)
+  let candidateList = JSON.parse(JSON.stringify(initialCandidateList));
 
   let db = null;
   let docRef = null;
@@ -712,50 +712,16 @@
         if (docSnap.exists()) {
           const data = docSnap.data();
           if (data && Array.isArray(data.candidates) && data.candidates.length > 0) {
-            candidateList = syncWithDefault(data.candidates);
-            renderAllTables();
-          } else {
-            candidateList = [...initialCandidateList];
-            saveData();
+            candidateList = data.candidates;
             renderAllTables();
           }
-        } else {
-          candidateList = [...initialCandidateList];
-          saveData();
-          renderAllTables();
         }
       }, (err) => {
         console.error("Firestore snapshot error:", err);
-        loadLocalFallback();
       });
     } catch(e) {
       console.log("Firebase Init Fallback", e);
-      loadLocalFallback();
     }
-  }
-
-  function syncWithDefault(incomingData) {
-    if (!incomingData || incomingData.length === 0) {
-      return [...initialCandidateList];
-    }
-    let merged = [...incomingData];
-    initialCandidateList.forEach(initItem => {
-      const foundIndex = merged.findIndex(m => m.name === initItem.name && m.branch === initItem.branch);
-      if (foundIndex === -1) {
-        merged.push(initItem);
-      } else {
-        // 명단에 있는 항목의 OT 및 입과 수치를 기본 수치로 보정
-        if (merged[foundIndex].ot === undefined) merged[foundIndex].ot = initItem.ot;
-        if (merged[foundIndex].ip === undefined) merged[foundIndex].ip = initItem.ip;
-      }
-    });
-    return merged;
-  }
-
-  function loadLocalFallback() {
-    const saved = localStorage.getItem('xiamen_candidate_data');
-    candidateList = saved ? syncWithDefault(JSON.parse(saved)) : [...initialCandidateList];
-    renderAllTables();
   }
 
   async function saveData() {
@@ -821,7 +787,7 @@
     tbody.appendChild(totalTr);
   }
 
-  // 2️⃣ 후보자 상세 명단 (하단) 렌더링 - 누구든 직접 편집 가능
+  // 2️⃣ 후보자 상세 명단 (하단) 렌더링 - 즉시 화면 표시
   function renderCandidateTable() {
     const tbody = document.getElementById('candidate-table-body');
     const emptyNotice = document.getElementById('empty-list-notice');
@@ -977,12 +943,19 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
+  // ⚡ 페이지가 열리자마자 38명 명단 즉시 출력
   window.onload = function() {
     calculateDDay();
+    
+    const saved = localStorage.getItem('xiamen_candidate_data');
+    if (saved) {
+      try { candidateList = JSON.parse(saved); } catch(e) {}
+    }
+    renderAllTables();
     initFirebase();
   };
 </script>
 
 </body>
 </html>
-
+```eof
