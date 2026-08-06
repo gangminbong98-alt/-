@@ -780,7 +780,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v4', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v5', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -1056,11 +1056,11 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 접속 시 42명 기본 데이터로 로딩
+  // ⚡ 접속 시 v5 최신 데이터 로딩
   window.onload = function() {
     calculateDDay();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v4');
+    const saved = localStorage.getItem('xiamen_candidate_data_v5');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
