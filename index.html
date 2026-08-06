@@ -627,11 +627,11 @@
     
     <div class="gallery-grid-4">
       <div class="gallery-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/South_Putuo_Temple.JPG/960px-South_Putuo_Temple.JPG" alt="남보타사">
+        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=500" alt="남보타사">
         <div class="gallery-caption">1. 남보타사 ⛩️</div>
       </div>
       <div class="gallery-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Snail_pit_tulou.jpg/960px-Snail_pit_tulou.jpg" alt="남정토루">
+        <img src="https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=500" alt="남정토루">
         <div class="gallery-caption">2. 남정토루 🏯</div>
       </div>
       <div class="gallery-item">
@@ -669,7 +669,7 @@
   // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 2026-08-06 최신 기준 전체 42명 기본 명단 데이터
+  // 📋 2026-08-06 최신 기준 전체 42명 기본 명단 데이터 (안양성공 8명 보정)
   const initialCandidateList = [
     // 광명 (6명)
     { branch: '광명', rc: '김연옥', name: '조강연', ot: 1, ip: 1, reg: 0, completed: false },
@@ -679,7 +679,7 @@
     { branch: '광명', rc: '이수만', name: '장옥자', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '광명', rc: '이종분', name: '한상희', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 안양성공 (8명)
+    // 안양성공 (8명) - 최신 이미지 보정
     { branch: '안양성공', rc: '박순천', name: '이문주', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '박순천', name: '차은경', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '서은희', name: '김지영', ot: 1, ip: 1, reg: 0, completed: false },
@@ -778,9 +778,10 @@
     }
   }
 
+  // 💾 수정한 즉시 클라우드 및 LocalStorage 동시 이중 저장
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v5', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v6', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -870,7 +871,6 @@
     candidateList.forEach((item, index) => {
       const tr = document.createElement('tr');
       
-      // 지점별 색상 클래스 적용
       const branchColorClass = getBranchColorClass(item.branch);
       if (branchColorClass) {
         tr.classList.add(branchColorClass);
@@ -1056,11 +1056,11 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 접속 시 v5 최신 데이터 로딩
+  // ⚡ 접속 시 v6 최신 데이터 로딩
   window.onload = function() {
     calculateDDay();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v5');
+    const saved = localStorage.getItem('xiamen_candidate_data_v6');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
