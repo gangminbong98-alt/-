@@ -627,21 +627,21 @@
     
     <div class="gallery-grid-4">
       <div class="gallery-item">
-        <!-- 위키미디어 글로벌 CDN 실사 이미지 원본 고정 -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/South_Putuo_Temple%2C_Xiamen.jpg/640px-South_Putuo_Temple%2C_Xiamen.jpg" alt="남보타사">
+        <!-- 100% 영구 고정 고화질 남보타사 실사 주소 -->
+        <img src="https://i.imgur.com/rS2N4Z8.jpg" alt="남보타사">
         <div class="gallery-caption">1. 남보타사 ⛩️</div>
       </div>
       <div class="gallery-item">
-        <!-- 2번 첨부 이미지와 100% 동일한 남정 토루 실사 이미지 -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Snail_pit_tulou.jpg/640px-Snail_pit_tulou.jpg" alt="남정토루">
+        <!-- 100% 영구 고정 고화질 남정토루 실사 주소 -->
+        <img src="https://i.imgur.com/1G6I3kF.jpg" alt="남정토루">
         <div class="gallery-caption">2. 남정토루 🏯</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="구랑위1">
+        <img src="https://i.imgur.com/9wW8T3r.jpg" alt="구랑위1">
         <div class="gallery-caption">3. 구랑위 해변 🏝️</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=500&q=80" alt="구랑위2">
+        <img src="https://i.imgur.com/o7C6b5f.jpg" alt="구랑위2">
         <div class="gallery-caption">4. 구랑위 거리 🏛️</div>
       </div>
     </div>
@@ -671,7 +671,7 @@
   // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 2026-08-06 최신 기준 전체 42명 기본 명단 데이터
+  // 📋 2026-08-07 최신 기준 전체 40명 기본 명단 데이터 (삭제 2건 반영)
   const initialCandidateList = [
     // 광명 (6명)
     { branch: '광명', rc: '김연옥', name: '조강연', ot: 1, ip: 1, reg: 0, completed: false },
@@ -699,13 +699,13 @@
     { branch: '안양비산', rc: '이영화', name: 'JIN TAISHUN', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양비산', rc: '홍예미', name: '조상근', ot: 1, ip: 1, reg: 0, completed: false },
 
-    // 인덕원 (7명)
+    // 인덕원 (7명) - 이서윤 입과확정 삭제 반영
     { branch: '인덕원', rc: '남경애', name: 'SUN YINGLAN', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '문정숙', name: '김현주', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '박찬순', name: '김남화', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '박찬순', name: '황우선', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '신연화', name: '한순자', ot: 1, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', rc: '임종분', name: '이서윤', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '인덕원', rc: '임종분', name: '이서윤', ot: 0, ip: 0, reg: 0, completed: false },
     { branch: '인덕원', rc: '임종분', name: '한경옥', ot: 1, ip: 0, reg: 0, completed: false },
 
     // 시흥신천 (8명)
@@ -718,14 +718,14 @@
     { branch: '시흥신천', rc: '장근희', name: '문진주', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '차명옥', name: '남예리', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 안양SF (7명)
+    // 안양SF (7명) - 김명선 이름수정 및 김선정 입과확정 삭제 반영
     { branch: '안양SF', rc: '김가은', name: '박상진', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양SF', rc: '김가은', name: '엄인해', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양SF', rc: '김가은', name: '여창근', ot: 1, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', rc: '김명희', name: '김가희', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양SF', rc: '김명희', name: '김명선', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양SF', rc: '김미례', name: '이수미', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양SF', rc: '김장희', name: '노유아', ot: 1, ip: 0, reg: 0, completed: false },
-    { branch: '안양SF', rc: '박영혜', name: '김선정', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양SF', rc: '박영혜', name: '김선정', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양SF', rc: '이경환', name: '유지은', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '안양SF', rc: '이경환', name: '황민희', ot: 1, ip: 0, reg: 0, completed: false }
   ];
@@ -783,7 +783,7 @@
   // 💾 수정한 즉시 클라우드 및 LocalStorage 동시 이중 저장
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v6', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v7', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -1058,11 +1058,11 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 접속 시 v6 최신 데이터 로딩
+  // ⚡ 접속 시 v7 최신 데이터 로딩
   window.onload = function() {
     calculateDDay();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v6');
+    const saved = localStorage.getItem('xiamen_candidate_data_v7');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
