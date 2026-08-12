@@ -627,12 +627,10 @@
     
     <div class="gallery-grid-4">
       <div class="gallery-item">
-        <!-- 100% 영구 고정 고화질 남보타사 실사 주소 -->
         <img src="https://i.imgur.com/rS2N4Z8.jpg" alt="남보타사">
         <div class="gallery-caption">1. 남보타사 ⛩️</div>
       </div>
       <div class="gallery-item">
-        <!-- 100% 영구 고정 고화질 남정토루 실사 주소 -->
         <img src="https://i.imgur.com/1G6I3kF.jpg" alt="남정토루">
         <div class="gallery-caption">2. 남정토루 🏯</div>
       </div>
@@ -671,17 +669,23 @@
   // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 2026-08-07 최신 기준 전체 40명 기본 명단 데이터 (삭제 2건 반영)
+  // 📋 2026-08-12 최신 기준 전체 45명 기본 명단 데이터 (수정 반영)
   const initialCandidateList = [
-    // 광명 (6명)
+    // 광명 (10명)
     { branch: '광명', rc: '김연옥', name: '조강연', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '광명', rc: '김연홍', name: '견은실', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '광명', rc: '류성조', name: '전나래', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '광명', rc: '박나희', name: '길영선', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '광명', rc: '박나희', name: '이명순', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '광명', rc: '박종숙', name: '조희영', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '광명', rc: '이수만', name: '노은선', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '광명', rc: '이수만', name: '장옥자', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '광명', rc: '이종분', name: '한상희', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '광명', rc: '전세원', name: '이정자', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 안양성공 (8명)
+    // 안양성공 (10명)
+    { branch: '안양성공', rc: '김영희', name: '박예인', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양성공', rc: '김영희', name: '최에르덴', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '박순천', name: '이문주', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '박순천', name: '차은경', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '서은희', name: '김지영', ot: 1, ip: 1, reg: 0, completed: false },
@@ -691,34 +695,36 @@
     { branch: '안양성공', rc: '이승렬', name: '이정숙', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '조옥희', name: '최현숙', ot: 0, ip: 1, reg: 0, completed: false },
 
-    // 안양비산 (6명)
+    // 안양비산 (8명) - 원종철 입과확정 삭제 반영
     { branch: '안양비산', rc: '강판금', name: '김보람', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양비산', rc: '강판금', name: '박세원', ot: 1, ip: 0, reg: 0, completed: false },
-    { branch: '안양비산', rc: '강판금', name: '원종철', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양비산', rc: '강판금', name: '원종철', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양비산', rc: '유경희', name: '김윤정', ot: 0, ip: 1, reg: 0, completed: false },
+    { branch: '안양비산', rc: '유진근', name: '송지윤', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '안양비산', rc: '이영화', name: 'JIN TAISHUN', ot: 1, ip: 0, reg: 0, completed: false },
+    { branch: '안양비산', rc: '이화숙', name: '박흥수', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양비산', rc: '홍예미', name: '조상근', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '안양비산', rc: '황종순', name: 'POUDEL KISHOR P', ot: 0, ip: 1, reg: 0, completed: false },
 
-    // 인덕원 (7명) - 이서윤 입과확정 삭제 반영
+    // 인덕원 (9명)
+    { branch: '인덕원', rc: '권미숙', name: '김대성', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '남경애', name: 'SUN YINGLAN', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '문정숙', name: '김현주', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '박찬순', name: '김남화', ot: 1, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '박찬순', name: '황우선', ot: 1, ip: 1, reg: 0, completed: false },
+    { branch: '인덕원', rc: '석해탄', name: 'HAN DONGRI', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '신연화', name: '한순자', ot: 1, ip: 0, reg: 0, completed: false },
-    { branch: '인덕원', rc: '임종분', name: '이서윤', ot: 0, ip: 0, reg: 0, completed: false },
+    { branch: '인덕원', rc: '임종분', name: '배군자', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '인덕원', rc: '임종분', name: '한경옥', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 시흥신천 (8명)
+    // 시흥신천 (5명)
     { branch: '시흥신천', rc: '김보민', name: '진선숙', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '김원경', name: '백미영', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '박지우', name: '김설매', ot: 0, ip: 1, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '김정희', ot: 0, ip: 1, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '박현석', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '장근희', name: '김도연', ot: 0, ip: 1, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '장근희', name: '문진주', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '차명옥', name: '남예리', ot: 1, ip: 0, reg: 0, completed: false },
 
-    // 안양SF (7명) - 김명선 이름수정 및 김선정 입과확정 삭제 반영
+    // 안양SF (9명)
     { branch: '안양SF', rc: '김가은', name: '박상진', ot: 0, ip: 1, reg: 0, completed: false },
     { branch: '안양SF', rc: '김가은', name: '엄인해', ot: 1, ip: 0, reg: 0, completed: false },
     { branch: '안양SF', rc: '김가은', name: '여창근', ot: 1, ip: 0, reg: 0, completed: false },
@@ -783,7 +789,7 @@
   // 💾 수정한 즉시 클라우드 및 LocalStorage 동시 이중 저장
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v7', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v8', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -1058,11 +1064,11 @@
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
-  // ⚡ 접속 시 v7 최신 데이터 로딩
+  // ⚡ 접속 시 v8 최신 데이터 로딩
   window.onload = function() {
     calculateDDay();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v7');
+    const saved = localStorage.getItem('xiamen_candidate_data_v8');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
