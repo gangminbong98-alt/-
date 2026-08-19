@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -206,7 +205,12 @@
     }
     th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
     
-    /* 🔍 요약 표 스타일 */
+    /* 🔍 요약 표 스타일 (지점 32%, 숫자 컬럼 각각 22.6%) */
+    .summary-table th:nth-child(1) { width: 32%; }
+    .summary-table th:nth-child(2),
+    .summary-table th:nth-child(3),
+    .summary-table th:nth-child(4) { width: 22.6%; }
+
     .summary-table th { 
       background-color: #0284c7; 
       color: white; 
@@ -224,7 +228,8 @@
       background-color: #e0f2fe; 
       color: #0369a1; 
       font-weight: 900; 
-      font-size: 15px; 
+      font-size: 14px; 
+      letter-spacing: -0.5px;
       border-top: 2.5px solid #0284c7; 
       padding: 10px 2px; 
     }
@@ -419,10 +424,10 @@
         <table class="summary-table">
           <thead>
             <tr>
-              <th style="width:28%;">지점</th>
-              <th style="width:24%;">입과</th>
-              <th style="width:24%;">합격</th>
-              <th style="width:24%;">등록</th>
+              <th>지점</th>
+              <th>입과</th>
+              <th>합격</th>
+              <th>등록</th>
             </tr>
           </thead>
           <tbody id="summary-table-body">
@@ -668,7 +673,7 @@
   // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 총 42명 기본 명단 데이터 (석해란 / 임예슬 유치자 정보 수정 반영)
+  // 총 42명 기본 명단 데이터
   const initialCandidateList = [
     // 광명 (8명)
     { branch: '광명', rc: '정재희', name: '김창선', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
@@ -758,7 +763,6 @@
             candidateList = data.candidates;
             candidateList.forEach(c => {
               if (c.ip === undefined || c.ip === null || c.ip === 0) c.ip = 1;
-              // 이름 수정 보정 반영
               if (c.name === 'HAN DONGRI' && c.rc === '석해탄') c.rc = '석해란';
               if (c.name === '조한솔' && (c.rc === '안양지역단' || !c.rc)) c.rc = '임예슬';
             });
@@ -848,7 +852,7 @@
     const totalTr = document.createElement('tr');
     totalTr.className = 'total-row';
     totalTr.innerHTML = `
-      <td>지역단 (합계)</td>
+      <td>지역단</td>
       <td>${totalIp}</td>
       <td>${totalPass}</td>
       <td>${totalReg}</td>
@@ -1051,4 +1055,3 @@
 
 </body>
 </html>
-```
