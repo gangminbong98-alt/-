@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+```htm<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>샤먼 가자 119!! - 도입 하문</title>
+  <title>샤먼 가자 42명 !! - 도입 하문</title>
 
   <!-- 📱 바탕화면 바로가기 전용 아이콘 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
@@ -11,7 +11,7 @@
 
   <!-- 🌐 카카오톡 / 네이버 / 문자 링크 공유 전용 메타 태그 (Open Graph) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="샤먼 가자 119!! ✈️ - 도입 하문">
+  <meta property="og:title" content="샤먼 가자 42명 !! ✈️ - 도입 하문">
   <meta property="og:description" content="샤먼 최종 42명이 도전하고 있습니다! 실시간 현황 및 시상 안내 확인하기 🏝️">
   <meta property="og:image" content="https://img.icons8.com/emoji/480/000000/airplane-emoji.png">
   <meta property="og:image:width" content="800">
@@ -19,7 +19,7 @@
 
   <!-- 🐦 모바일 메신저 전용 요약 카드 -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="샤먼 가자 119!! ✈️ - 도입 하문">
+  <meta name="twitter:title" content="샤먼 가자 42명 !! ✈️ - 도입 하문">
   <meta name="twitter:description" content="샤먼 최종 42명이 도전하고 있습니다! 실시간 현황 확인하기 🏝️">
   <meta name="twitter:image" content="https://img.icons8.com/emoji/480/000000/airplane-emoji.png">
 
@@ -53,12 +53,14 @@
       flex-direction: column;
     }
 
+    /* 🌊 기본 히어로 배너 (매일 동적으로 변경됨) */
     .beach-hero {
       position: relative;
       background: linear-gradient(180deg, #0284c7 0%, #0369a1 55%, #38bdf8 100%);
       padding: 20px 16px 36px 16px;
       color: white;
       overflow: hidden;
+      transition: background 1s ease;
     }
 
     .sun-glow {
@@ -94,32 +96,51 @@
       gap: 8px;
     }
 
-    .app-title-box { display: flex; flex-direction: column; }
-    .sub-tag { font-size: 11px; font-weight: 800; color: #e0f2fe; letter-spacing: 0.5px; margin-bottom: 2px; }
+    .app-title-box { display: flex; flex-direction: column; align-items: flex-start; }
+    .sub-tag { font-size: 11px; font-weight: 800; color: #e0f2fe; letter-spacing: 0.5px; margin-bottom: 4px; }
     
-    .main-hero-title {
-      font-size: 24px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: -0.5px;
-      text-shadow: 0 2px 8px rgba(3, 105, 161, 0.6);
-      display: flex;
+    /* ✨ 선명하고 돋보이는 '샤먼 가자 42명 !!' 통합 골드 배지 스타일 */
+    .title-badge-hero {
+      display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
+      background: linear-gradient(135deg, #fef08a 0%, #fde047 45%, #eab308 100%);
+      color: #0f172a;
+      padding: 6px 12px;
+      border-radius: 18px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      box-shadow: 0 4px 14px rgba(234, 179, 8, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+      border: 2px solid #ffffff;
+      position: relative;
+      overflow: hidden;
+      animation: badgePulse 2.2s ease-in-out infinite alternate;
       white-space: nowrap;
     }
-    .clickable-xiamen {
-      color: #fde047;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      cursor: pointer;
-      position: relative;
+
+    .title-badge-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.75) 50%, transparent 70%);
+      transform: rotate(30deg);
+      animation: badgeShine 3s infinite;
+      pointer-events: none;
     }
-    .clickable-xiamen::after {
-      content: "📸";
-      font-size: 13px;
-      margin-left: 2px;
-      vertical-align: middle;
+
+    @keyframes badgeShine {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      25% { transform: translateX(100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
+
+    @keyframes badgePulse {
+      0% { transform: scale(1); box-shadow: 0 4px 12px rgba(234, 179, 8, 0.4); }
+      100% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(253, 224, 71, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); }
     }
 
     .header-right-group { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
@@ -150,20 +171,38 @@
       position: relative;
       z-index: 2;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: border-color 0.5s ease;
+      overflow: hidden;
     }
 
     .quote-text { 
       font-size: 11px; 
       font-weight: 900; 
       color: #0369a1; 
-      display: flex; 
+      display: inline-flex; 
       align-items: center; 
       justify-content: center;
-      gap: 4px; 
       width: 100%;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      transition: color 0.5s ease;
+    }
+
+    /* 🌊 파도처럼 유연하게 출렁거리는 문자 애니메이션 */
+    .wave-char {
+      display: inline-block;
+      animation: waveMotion 2.2s ease-in-out infinite;
+    }
+
+    @keyframes waveMotion {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-4px) rotate(-1.5deg);
+      }
+      75% {
+        transform: translateY(3px) rotate(1.5deg);
+      }
     }
 
     .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
@@ -217,6 +256,7 @@
       border-color: #0284c7; 
       font-size: 13px; 
       padding: 8px 2px; 
+      transition: background-color 0.5s ease, border-color 0.5s ease;
     }
     .summary-table td { 
       background-color: #f8fafc; 
@@ -316,63 +356,21 @@
     .target-table-style td { padding: 10px; font-size: 13px; font-weight: 800; border: 1px solid #cbd5e1; color: #0f172a; }
     .target-table-style tr:nth-child(even) { background: #f8fafc; }
     .target-table-style tr.region-total { background: #e0f2fe; font-size: 14px; }
-
-    /* 🖼️ 샤먼 명소 4선 모달 */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.75);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      padding: 16px;
-    }
-    .modal-box {
-      background: #ffffff;
-      border-radius: 20px;
-      width: 100%;
-      max-width: 440px;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 20px;
-      position: relative;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .modal-title { font-size: 18px; font-weight: 900; color: #0284c7; }
-    .btn-close-modal { background: #f1f5f9; border: none; font-size: 18px; font-weight: 900; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
-
-    .gallery-grid-4 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1.5px solid #cbd5e1;
-      background: #f8fafc;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    }
-    .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
-    .gallery-caption { font-size: 12px; font-weight: 900; color: #0369a1; padding: 8px 4px; text-align: center; background: #f0f9ff; border-top: 1px solid #e2e8f0; }
   </style>
 </head>
 <body>
 
 <div class="app-container">
-  <div class="beach-hero">
+  <div class="beach-hero" id="hero-banner">
     <div class="sun-glow"></div>
     <div class="floating-plane">✈️</div>
 
     <div class="hero-header-top">
       <div class="app-title-box">
         <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
-        <h1 class="main-hero-title">
-          <span class="clickable-xiamen" onclick="openPhotoModal()">샤먼</span> 가자 119!!
-        </h1>
+        <div class="title-badge-hero">
+          <span>🌴 샤먼 가자 42명 !! ✨</span>
+        </div>
       </div>
       <div class="header-right-group">
         <div class="badge-box">
@@ -381,9 +379,9 @@
       </div>
     </div>
 
-    <div class="beach-quote-bar">
-      <div class="quote-text">
-        <span>🏝️ 에메랄드빛 샤먼 해변이 우리를 기다립니다!</span>
+    <div class="beach-quote-bar" id="hero-quote-bar">
+      <div class="quote-text" id="hero-quote-text">
+        <!-- JS를 통해 각 글자가 파도처럼 연쇄하여 출렁입니다 -->
       </div>
     </div>
 
@@ -620,36 +618,6 @@
   </div>
 </div>
 
-<!-- 🖼️ 샤먼 명소 4선 모달 -->
-<div class="modal-overlay" id="photo-modal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <div class="modal-title">🌴 샤먼 핵심 명소 4선</div>
-      <button class="btn-close-modal" onclick="closePhotoModal()">✕</button>
-    </div>
-    <p style="font-size:12px; color:#64748b; font-weight:700; margin-bottom:10px;">우리가 11월에 다 함께 떠날 아름다운 샤먼입니다! ✈️</p>
-    
-    <div class="gallery-grid-4">
-      <div class="gallery-item">
-        <img src="https://images.pexels.com/photos/208821/pexels-photo-208821.jpeg?auto=compress&cs=tinysrgb&w=500" alt="남보타사">
-        <div class="gallery-caption">1. 남보타사 ⛩️</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.pexels.com/photos/161401/fujian-tulou-china-rural-ancient-161401.jpeg?auto=compress&cs=tinysrgb&w=500" alt="남정토루">
-        <div class="gallery-caption">2. 남정토루 🏯</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=500" alt="구랑위1">
-        <div class="gallery-caption">3. 구랑위 해변 🏝️</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=500" alt="구랑위2">
-        <div class="gallery-caption">4. 구랑위 거리 🏛️</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- 🔥 Firebase 공식 SDK 실시간 연동 엔진 -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -669,6 +637,59 @@
   const firebaseConfig = (typeof __firebase_config !== 'undefined' && __firebase_config) 
     ? JSON.parse(__firebase_config) 
     : userFirebaseConfig;
+
+  // 🌊 문구를 글자별 파도 애니메이션 스팬으로 변환하는 함수
+  function initWaveText() {
+    const quoteContainer = document.getElementById('hero-quote-text');
+    if (!quoteContainer) return;
+
+    const rawText = "🏝️ 에메랄드빛 샤먼 해변이 우리를 기다립니다!";
+    quoteContainer.innerHTML = '';
+
+    [...rawText].forEach((char, idx) => {
+      const span = document.createElement('span');
+      span.className = 'wave-char';
+      span.textContent = char === ' ' ? '\u00A0' : char; // 공백 간격 보존
+      span.style.animationDelay = `${(idx * 0.07).toFixed(2)}s`;
+      quoteContainer.appendChild(span);
+    });
+  }
+
+  // 🌈 매일매일 자동으로 바뀌는 7가지 요일별 테마 색상 (일~토)
+  const dailyThemes = [
+    // 0: 일요일 (상큼한 열대 트로피컬 오렌지/레드)
+    { bg: 'linear-gradient(180deg, #ea580c 0%, #c2410c 55%, #f97316 100%)', themeColor: '#ea580c', textColor: '#9a3412', tableHeaderBg: '#ea580c' },
+    // 1: 월요일 (청량한 에메랄드 그린 오션)
+    { bg: 'linear-gradient(180deg, #0d9488 0%, #0f766e 55%, #2dd4bf 100%)', themeColor: '#0d9488', textColor: '#0f766e', tableHeaderBg: '#0d9488' },
+    // 2: 화요일 (고급스러운 샤먼 퍼플 선셋)
+    { bg: 'linear-gradient(180deg, #7c3aed 0%, #6d28d9 55%, #a855f7 100%)', themeColor: '#7c3aed', textColor: '#6d28d9', tableHeaderBg: '#7c3aed' },
+    // 3: 수요일 (깊고 시원한 인디고 딥블루)
+    { bg: 'linear-gradient(180deg, #1e40af 0%, #1e3a8a 55%, #3b82f6 100%)', themeColor: '#1e40af', textColor: '#1e3a8a', tableHeaderBg: '#1e40af' },
+    // 4: 목요일 (원조 상쾌한 샤먼 마린 스카이 블루)
+    { bg: 'linear-gradient(180deg, #0284c7 0%, #0369a1 55%, #38bdf8 100%)', themeColor: '#0284c7', textColor: '#0369a1', tableHeaderBg: '#0284c7' },
+    // 5: 금요일 (열정적인 로즈 핑크 코랄)
+    { bg: 'linear-gradient(180deg, #e11d48 0%, #be123c 55%, #fb7185 100%)', themeColor: '#e11d48', textColor: '#be123c', tableHeaderBg: '#e11d48' },
+    // 6: 토요일 (싱그러운 딥 그린 야자수)
+    { bg: 'linear-gradient(180deg, #059669 0%, #047857 55%, #34d399 100%)', themeColor: '#059669', textColor: '#047857', tableHeaderBg: '#059669' }
+  ];
+
+  // 🗓️ 오늘 요일에 맞춰 테마 자동 적용
+  function applyDailyTheme() {
+    const dayOfWeek = new Date().getDay(); // 0(일) ~ 6(토)
+    const todayTheme = dailyThemes[dayOfWeek] || dailyThemes[4];
+
+    const heroBanner = document.getElementById('hero-banner');
+    const quoteBar = document.getElementById('hero-quote-bar');
+
+    if (heroBanner) heroBanner.style.background = todayTheme.bg;
+    if (quoteBar) quoteBar.style.borderColor = todayTheme.themeColor;
+
+    // 표 헤더 배경색 변경
+    document.querySelectorAll('.summary-table th').forEach(th => {
+      th.style.backgroundColor = todayTheme.tableHeaderBg;
+      th.style.borderColor = todayTheme.tableHeaderBg;
+    });
+  }
 
   // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
@@ -974,9 +995,6 @@
     }, 100);
   }
 
-  function openPhotoModal() { document.getElementById('photo-modal').style.display = 'flex'; }
-  function closePhotoModal() { document.getElementById('photo-modal').style.display = 'none'; }
-
   function showSection(type) {
     document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
     
@@ -1019,14 +1037,18 @@
   }
 
   // Global Binding
-  window.openPhotoModal = openPhotoModal;
-  window.closePhotoModal = closePhotoModal;
   window.addRow = addRow;
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
   // Initialize App Data
   const initApp = function() {
+    // 🗓️ 매일 바뀌는 요일별 테마 색상 적용
+    applyDailyTheme();
+    
+    // 🌊 파도처럼 출렁이는 문자 생성
+    initWaveText();
+
     const saved = localStorage.getItem('xiamen_candidate_data_v11');
     if (saved) {
       try {
