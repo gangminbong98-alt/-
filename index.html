@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,6 +9,20 @@
   <!-- 📱 바탕화면 바로가기 전용 아이콘 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
   <link rel="apple-touch-icon" href="https://img.icons8.com/emoji/192/000000/airplane-emoji.png">
+
+  <!-- 🌐 카카오톡 / 네이버 / 문자 링크 공유 전용 메타 태그 (Open Graph) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="샤먼 가자 119!! ✈️ - 도입 하문">
+  <meta property="og:description" content="샤먼 최종 42명이 도전하고 있습니다! 실시간 현황 및 시상 안내 확인하기 🏝️">
+  <meta property="og:image" content="https://img.icons8.com/emoji/480/000000/airplane-emoji.png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+
+  <!-- 🐦 모바일 메신저 전용 요약 카드 -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="샤먼 가자 119!! ✈️ - 도입 하문">
+  <meta name="twitter:description" content="샤먼 최종 42명이 도전하고 있습니다! 실시간 현황 확인하기 🏝️">
+  <meta name="twitter:image" content="https://img.icons8.com/emoji/480/000000/airplane-emoji.png">
 
   <style>
     * { 
@@ -129,11 +144,10 @@
       background: #ffffff;
       border: 2px solid #0284c7;
       border-radius: 12px;
-      padding: 8px 10px;
+      padding: 8px 12px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 6px;
+      justify-content: center;
       position: relative;
       z-index: 2;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -145,28 +159,12 @@
       color: #0369a1; 
       display: flex; 
       align-items: center; 
-      gap: 4px; 
-      flex: 1;
-      min-width: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    
-    .dday-tag { 
-      background: #0f172a; 
-      color: #fde047; 
-      font-size: 11px; 
-      font-weight: 900; 
-      padding: 4px 8px; 
-      border-radius: 8px; 
-      letter-spacing: 0.5px; 
-      white-space: nowrap; 
-      flex-shrink: 0;
-      line-height: 1;
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
+      gap: 4px; 
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
@@ -186,7 +184,8 @@
     .content-card { background: #ffffff; }
 
     .table-container { display: block; width: 100%; overflow-x: hidden; }
-    .section-title { font-size: 15px; font-weight: 900; color: #0f172a; margin-top: 6px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .section-title { font-size: 14px; font-weight: 900; color: #0f172a; margin-top: 6px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 4px; }
+    .section-title span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     
     /* 한 화면 고정용 테이블 스타일 */
     table { 
@@ -269,7 +268,7 @@
     .badge-chung { background-color: #fef3c7; color: #b45309; }
     .badge-postpone { background-color: #f1f5f9; color: #64748b; }
 
-    .btn-add { background: #0284c7; color: white; border: none; padding: 5px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+    .btn-add { background: #0284c7; color: white; border: none; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
 
     .empty-msg { text-align: center; color: #64748b; font-size: 12px; padding: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; margin-bottom: 10px; font-weight: 700; }
 
@@ -381,7 +380,6 @@
       <div class="quote-text">
         <span>🏝️ 에메랄드빛 샤먼 해변이 우리를 기다립니다!</span>
       </div>
-      <span class="dday-tag" id="dday-counter">D-00</span>
     </div>
 
     <div class="wave-container">
@@ -670,7 +668,7 @@
   // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 총 42명 기본 명단 데이터 (모든 후보자의 입과 수치 ip: 1 로 설정)
+  // 총 42명 기본 명단 데이터 (석해란 / 임예슬 유치자 정보 수정 반영)
   const initialCandidateList = [
     // 광명 (8명)
     { branch: '광명', rc: '정재희', name: '김창선', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
@@ -708,7 +706,7 @@
     { branch: '인덕원', rc: '남경애', name: 'SUN YINGLAN', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '인덕원', rc: '문정숙', name: '김현주', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '인덕원', rc: '최승원', name: '이보경', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '인덕원', rc: '석해탄', name: 'HAN DONGRI', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '인덕원', rc: '석해란', name: 'HAN DONGRI', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
 
     // 시흥신천 (6명)
     { branch: '시흥신천', rc: '김보민', name: '진선숙', ipType: '이월', ip: 1, pass: 0, reg: 0, completed: false },
@@ -724,7 +722,7 @@
     { branch: '안양SF', rc: '박영혜', name: '김선정', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '안양SF', rc: '김가은', name: '박상진', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '안양SF', rc: '이경환', name: '유지은', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '안양SF', rc: '안양지역단', name: '조한솔', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false }
+    { branch: '안양SF', rc: '임예슬', name: '조한솔', ipType: '청강', ip: 1, pass: 0, reg: 0, completed: false }
   ];
 
   let candidateList = JSON.parse(JSON.stringify(initialCandidateList));
@@ -758,9 +756,11 @@
           const data = docSnap.data();
           if (data && Array.isArray(data.candidates) && data.candidates.length >= 10) {
             candidateList = data.candidates;
-            // 입과 수치가 0으로 유실되어 있는 데이터가 있다면 1로 보정
             candidateList.forEach(c => {
               if (c.ip === undefined || c.ip === null || c.ip === 0) c.ip = 1;
+              // 이름 수정 보정 반영
+              if (c.name === 'HAN DONGRI' && c.rc === '석해탄') c.rc = '석해란';
+              if (c.name === '조한솔' && (c.rc === '안양지역단' || !c.rc)) c.rc = '임예슬';
             });
             renderAllTables();
           } else {
@@ -808,7 +808,7 @@
     return '';
   }
 
-  // 1️⃣ 지점별 요약 표 (지점 | 입과 | 합격 | 등록 -> 입과 수치 총 42명 자동합산)
+  // 1️⃣ 지점별 요약 표
   function renderSummaryTable() {
     const tbody = document.getElementById('summary-table-body');
     if (!tbody) return;
@@ -845,7 +845,6 @@
       tbody.appendChild(tr);
     });
 
-    // 지역단 (합계) 행 (총 42명 표시)
     const totalTr = document.createElement('tr');
     totalTr.className = 'total-row';
     totalTr.innerHTML = `
@@ -924,7 +923,6 @@
     } else if (field === 'ipType') {
       const trimmed = val.trim();
       candidateList[index].ipType = trimmed;
-      // 상태 구분과 상관없이 기본 입과 인원수 카운트 유지
       candidateList[index].ip = 1;
     } else {
       const numVal = parseInt(val) || 0;
@@ -970,31 +968,6 @@
       const firstRow = document.querySelector('#candidate-table-body tr');
       if (firstRow) firstRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 100);
-  }
-
-  function calculateDDay() {
-    const today = new Date();
-    const targetDate = new Date(today.getFullYear(), 7, 27); // 8월 27일 자격시험 기준
-    
-    today.setHours(0, 0, 0, 0);
-    targetDate.setHours(0, 0, 0, 0);
-
-    const diffTime = targetDate - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    const ddayElem = document.getElementById('dday-counter');
-    if (!ddayElem) return;
-    
-    if (diffDays > 0) {
-      const formattedDays = diffDays < 10 ? `0${diffDays}` : diffDays;
-      ddayElem.innerText = `D-${formattedDays}`;
-    } else if (diffDays === 0) {
-      ddayElem.innerText = `D-00`;
-    } else {
-      const pastDays = Math.abs(diffDays);
-      const formattedDays = pastDays < 10 ? `0${pastDays}` : pastDays;
-      ddayElem.innerText = `D+${formattedDays}`;
-    }
   }
 
   function openPhotoModal() { document.getElementById('photo-modal').style.display = 'flex'; }
@@ -1050,8 +1023,6 @@
 
   // Initialize App Data
   const initApp = function() {
-    calculateDDay();
-    
     const saved = localStorage.getItem('xiamen_candidate_data_v11');
     if (saved) {
       try {
@@ -1060,6 +1031,8 @@
           candidateList = parsed;
           candidateList.forEach(c => {
             if (c.ip === undefined || c.ip === null || c.ip === 0) c.ip = 1;
+            if (c.name === 'HAN DONGRI' && c.rc === '석해탄') c.rc = '석해란';
+            if (c.name === '조한솔' && (c.rc === '안양지역단' || !c.rc)) c.rc = '임예슬';
           });
         }
       } catch(e) {}
@@ -1078,4 +1051,4 @@
 
 </body>
 </html>
-
+```
