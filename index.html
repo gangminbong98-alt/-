@@ -101,7 +101,6 @@
     .app-title-box { display: flex; flex-direction: column; }
     .sub-tag { font-size: 11px; font-weight: 800; color: #ffffff; opacity: 0.9; letter-spacing: 0.5px; margin-bottom: 2px; }
     
-    /* 📢 더 크고 선명해진 타이틀 스타일 */
     .main-hero-title {
       font-size: 28px;
       font-weight: 900;
@@ -130,7 +129,6 @@
       white-space: nowrap;
     }
 
-    /* ⚡ 번쩍번쩍 빛나는 배너 */
     .beach-quote-bar {
       margin-top: 10px;
       background: #092c3e;
@@ -238,7 +236,6 @@
     }
     th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
     
-    /* 🔍 요약 표 글자 및 숫자 확대 스타일 */
     .summary-table th { 
       background-color: var(--theme-primary); 
       color: white; 
@@ -265,7 +262,6 @@
     .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; }
     .summary-table .branch-cell { font-size: 15px; font-weight: 900; background-color: #f8fafc; }
 
-    /* 🎨 지점별 구분 색상 스타일 */
     tr.branch-kwangmyung td { background-color: #f0f9ff !important; }
     tr.branch-kwangmyung td.branch-cell { background-color: #e0f2fe !important; color: #0369a1; }
 
@@ -358,7 +354,7 @@
     .kpi-table-style td { padding: 8px 4px; font-size: 11px; border: 1px solid #94a3b8; font-weight: 700; color: #0f172a; }
     .kpi-red-highlight-box { border: 2.5px solid #ef4444 !important; background-color: #fef2f2; }
 
-    .target-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; text-align: left; }
+    .target-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; }
     .target-table-style { width: 100%; border-collapse: collapse; text-align: center; }
     .target-table-style th { background: #0284c7; color: #ffffff; font-size: 14px; font-weight: 900; padding: 10px; border: 1px solid #0284c7; }
     .target-table-style td { padding: 10px; font-size: 13px; font-weight: 800; border: 1px solid #cbd5e1; color: #0f172a; }
@@ -376,7 +372,6 @@
     <div class="hero-header-top">
       <div class="app-title-box">
         <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
-        <!-- 📢 변경된 타이틀 -->
         <h1 class="main-hero-title">
           우리 샤먼 갈래요~
         </h1>
@@ -388,7 +383,7 @@
       </div>
     </div>
 
-    <!-- ⚡ 번쩍이는 문장 배너 -->
+    <!-- ⚡ 번쩍이는 배너 -->
     <div class="beach-quote-bar">
       <div class="quote-text">
         <span>🏝️ ✨ 에메랄드빛 샤먼 해변이 우리를 기다립니다! ✨</span>
@@ -700,14 +695,14 @@
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
   const initialCandidateList = [
-    // 광명 (8명)
+    // 광명 (8명) - 전은실 수정 반영
     { branch: '광명', rc: '정재희', name: '김창선', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '광명', rc: '박옥희', name: '유영희', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '광명', rc: '양진서', name: '이재희', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '광명', rc: '박종숙', name: '조희영', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '광명', rc: '이수만', name: '장옥자', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '광명', rc: '류성조', name: '전나래', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '광명', rc: '김연홍', name: '견은실', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '광명', rc: '김연홍', name: '전은실', ip: 1, pass: 1, reg: 0, completed: false },
     { branch: '광명', rc: '이종분', name: '원유자', ip: 1, pass: 1, reg: 0, completed: false },
 
     // 안양성공 (7명)
@@ -775,7 +770,7 @@
       }
 
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
-      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v14');
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v15');
 
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -803,7 +798,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v14', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v15', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -1052,7 +1047,7 @@
   window.onload = function() {
     applyRandomTheme();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v14');
+    const saved = localStorage.getItem('xiamen_candidate_data_v15');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
