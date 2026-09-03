@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>샤먼 가자 119!! - 도입 하문</title>
+  <title>우리 샤먼 갈래요~ - 도입 하문</title>
 
   <!-- ✈️ SNS/카카오톡 링크 공유(OG) 전용 비행기 이미지 및 정보 -->
-  <meta property="og:title" content="샤먼 가자 119!! - 도입 하문">
+  <meta property="og:title" content="우리 샤먼 갈래요~ - 도입 하문">
   <meta property="og:description" content="9월 등록 ✈️ 11월 샤먼 출발! 도입 진척 및 시험결과 현황">
   <meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&auto=format&fit=crop&q=80">
   <meta property="og:image:width" content="1200">
@@ -101,12 +101,13 @@
     .app-title-box { display: flex; flex-direction: column; }
     .sub-tag { font-size: 11px; font-weight: 800; color: #ffffff; opacity: 0.9; letter-spacing: 0.5px; margin-bottom: 2px; }
     
+    /* 📢 더 크고 선명해진 타이틀 스타일 */
     .main-hero-title {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 900;
       color: #ffffff;
-      letter-spacing: -0.5px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.8px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       gap: 4px;
@@ -129,23 +130,62 @@
       white-space: nowrap;
     }
 
-    /* ✨ 반짝이는 문장 배너 */
+    /* ⚡ 번쩍번쩍 빛나는 배너 */
     .beach-quote-bar {
       margin-top: 10px;
-      background: #ffffff;
-      border: 2px solid var(--theme-primary);
-      border-radius: 12px;
+      background: #092c3e;
+      border: 2px solid #34d399;
+      border-radius: 14px;
       padding: 10px 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       z-index: 2;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.6), inset 0 0 10px rgba(52, 211, 153, 0.3);
+      animation: badgeFlashGlow 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes badgeFlashGlow {
+      0% {
+        border-color: #34d399;
+        box-shadow: 0 0 10px rgba(52, 211, 153, 0.5), inset 0 0 6px rgba(52, 211, 153, 0.2);
+        transform: scale(1);
+      }
+      50% {
+        border-color: #fde047;
+        box-shadow: 0 0 24px rgba(253, 224, 71, 0.9), inset 0 0 14px rgba(253, 224, 71, 0.4);
+        transform: scale(1.015);
+      }
+      100% {
+        border-color: #38bdf8;
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.8), inset 0 0 12px rgba(56, 189, 248, 0.4);
+        transform: scale(1);
+      }
+    }
+
+    .beach-quote-bar::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -150%;
+      width: 80%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+      transform: rotate(25deg);
+      animation: sweepShine 2.5s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sweepShine {
+      0% { left: -150%; }
+      35% { left: 160%; }
+      100% { left: 160%; }
     }
 
     .quote-text { 
-      font-size: 12px; 
+      font-size: 13px; 
       font-weight: 900; 
       display: flex; 
       align-items: center; 
@@ -153,18 +193,20 @@
       gap: 6px; 
       width: 100%;
       text-align: center;
-      background: linear-gradient(90deg, #0284c7 0%, #0d9488 25%, #10b981 50%, #0284c7 75%, #0369a1 100%);
-      background-size: 200% auto;
+      background: linear-gradient(90deg, #6ee7b7, #fef08a, #67e8f9, #6ee7b7);
+      background-size: 300% auto;
       color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
-      animation: shimmerGlow 3s linear infinite;
-      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.3));
+      animation: textFlow 3s linear infinite;
+      text-shadow: 0 0 12px rgba(110, 231, 183, 0.6);
+      position: relative;
+      z-index: 3;
     }
 
-    @keyframes shimmerGlow {
+    @keyframes textFlow {
       0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
+      100% { background-position: 300% center; }
     }
 
     .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
@@ -316,7 +358,7 @@
     .kpi-table-style td { padding: 8px 4px; font-size: 11px; border: 1px solid #94a3b8; font-weight: 700; color: #0f172a; }
     .kpi-red-highlight-box { border: 2.5px solid #ef4444 !important; background-color: #fef2f2; }
 
-    .target-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; }
+    .target-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; text-align: left; }
     .target-table-style { width: 100%; border-collapse: collapse; text-align: center; }
     .target-table-style th { background: #0284c7; color: #ffffff; font-size: 14px; font-weight: 900; padding: 10px; border: 1px solid #0284c7; }
     .target-table-style td { padding: 10px; font-size: 13px; font-weight: 800; border: 1px solid #cbd5e1; color: #0f172a; }
@@ -334,8 +376,9 @@
     <div class="hero-header-top">
       <div class="app-title-box">
         <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
+        <!-- 📢 변경된 타이틀 -->
         <h1 class="main-hero-title">
-          샤먼 가자 119!!
+          우리 샤먼 갈래요~
         </h1>
       </div>
       <div class="header-right-group">
@@ -345,7 +388,7 @@
       </div>
     </div>
 
-    <!-- D-day 삭제 및 멋지게 반짝이는 문장 배너 -->
+    <!-- ⚡ 번쩍이는 문장 배너 -->
     <div class="beach-quote-bar">
       <div class="quote-text">
         <span>🏝️ ✨ 에메랄드빛 샤먼 해변이 우리를 기다립니다! ✨</span>
