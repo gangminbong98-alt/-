@@ -19,6 +19,14 @@
   <link rel="apple-touch-icon" href="https://img.icons8.com/emoji/192/000000/airplane-emoji.png">
 
   <style>
+    :root {
+      --theme-hero-grad: linear-gradient(180deg, #0284c7 0%, #0369a1 55%, #38bdf8 100%);
+      --theme-primary: #0284c7;
+      --theme-dark: #0369a1;
+      --theme-light: #e0f2fe;
+      --theme-bg-soft: #f0f9ff;
+    }
+
     * { 
       box-sizing: border-box; 
       margin: 0; 
@@ -50,10 +58,11 @@
 
     .beach-hero {
       position: relative;
-      background: linear-gradient(180deg, #0284c7 0%, #0369a1 55%, #38bdf8 100%);
+      background: var(--theme-hero-grad);
       padding: 20px 16px 36px 16px;
       color: white;
       overflow: hidden;
+      transition: background 0.5s ease;
     }
 
     .sun-glow {
@@ -90,31 +99,18 @@
     }
 
     .app-title-box { display: flex; flex-direction: column; }
-    .sub-tag { font-size: 11px; font-weight: 800; color: #e0f2fe; letter-spacing: 0.5px; margin-bottom: 2px; }
+    .sub-tag { font-size: 11px; font-weight: 800; color: #ffffff; opacity: 0.9; letter-spacing: 0.5px; margin-bottom: 2px; }
     
     .main-hero-title {
       font-size: 24px;
       font-weight: 900;
       color: #ffffff;
       letter-spacing: -0.5px;
-      text-shadow: 0 2px 8px rgba(3, 105, 161, 0.6);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       gap: 4px;
       white-space: nowrap;
-    }
-    .clickable-xiamen {
-      color: #fde047;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      cursor: pointer;
-      position: relative;
-    }
-    .clickable-xiamen::after {
-      content: "📸";
-      font-size: 13px;
-      margin-left: 2px;
-      vertical-align: middle;
     }
 
     .header-right-group { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
@@ -133,49 +129,42 @@
       white-space: nowrap;
     }
 
+    /* ✨ 반짝이는 문장 배너 */
     .beach-quote-bar {
       margin-top: 10px;
       background: #ffffff;
-      border: 2px solid #0284c7;
+      border: 2px solid var(--theme-primary);
       border-radius: 12px;
-      padding: 8px 10px;
+      padding: 10px 14px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 6px;
+      justify-content: center;
       position: relative;
       z-index: 2;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
     }
 
     .quote-text { 
-      font-size: 11px; 
+      font-size: 12px; 
       font-weight: 900; 
-      color: #0369a1; 
       display: flex; 
       align-items: center; 
-      gap: 4px; 
-      flex: 1;
-      min-width: 0;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    
-    .dday-tag { 
-      background: #0f172a; 
-      color: #fde047; 
-      font-size: 11px; 
-      font-weight: 900; 
-      padding: 4px 8px; 
-      border-radius: 8px; 
-      letter-spacing: 0.5px; 
-      white-space: nowrap; 
-      flex-shrink: 0;
-      line-height: 1;
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
+      gap: 6px; 
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(90deg, #0284c7 0%, #0d9488 25%, #10b981 50%, #0284c7 75%, #0369a1 100%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmerGlow 3s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.3));
+    }
+
+    @keyframes shimmerGlow {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
 
     .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
@@ -186,11 +175,11 @@
 
     .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
     .menu-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; padding: 8px 2px; border: 1.5px solid #cbd5e1; border-radius: 14px; background-color: #f8fafc; transition: all 0.25s; user-select: none; }
-    .menu-item.active { background-color: #f0f9ff; border-color: #0284c7; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2); transform: translateY(-2px); }
-    .icon-box { width: 38px; height: 38px; background-color: #e0f2fe; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 18px; margin-bottom: 4px; }
-    .menu-item.active .icon-box { background: linear-gradient(135deg, #0284c7, #0369a1); color: white; }
+    .menu-item.active { background-color: var(--theme-bg-soft); border-color: var(--theme-primary); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); transform: translateY(-2px); }
+    .icon-box { width: 38px; height: 38px; background-color: var(--theme-light); border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 18px; margin-bottom: 4px; }
+    .menu-item.active .icon-box { background: var(--theme-hero-grad); color: white; }
     .menu-label { font-size: 11px; font-weight: 800; color: #334155; white-space: nowrap; }
-    .menu-item.active .menu-label { color: #0284c7; }
+    .menu-item.active .menu-label { color: var(--theme-primary); }
 
     .content-card { background: #ffffff; }
 
@@ -209,11 +198,12 @@
     
     /* 🔍 요약 표 글자 및 숫자 확대 스타일 */
     .summary-table th { 
-      background-color: #0284c7; 
+      background-color: var(--theme-primary); 
       color: white; 
-      border-color: #0284c7; 
+      border-color: var(--theme-primary); 
       font-size: 14px; 
       padding: 9px 4px; 
+      transition: background-color 0.4s ease;
     }
     .summary-table td { 
       background-color: #f8fafc; 
@@ -222,18 +212,18 @@
       padding: 10px 4px; 
     }
     .summary-table tr.total-row td { 
-      background-color: #e0f2fe; 
-      color: #0369a1; 
+      background-color: var(--theme-light); 
+      color: var(--theme-dark); 
       font-weight: 900; 
       font-size: 16px; 
-      border-top: 2.5px solid #0284c7; 
+      border-top: 2.5px solid var(--theme-primary); 
       padding: 12px 4px; 
     }
 
     .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; }
     .summary-table .branch-cell { font-size: 15px; font-weight: 900; background-color: #f8fafc; }
 
-    /* 🎨 지점별 구분 색상 스타일 (후보자 상세 명단 전용) */
+    /* 🎨 지점별 구분 색상 스타일 */
     tr.branch-kwangmyung td { background-color: #f0f9ff !important; }
     tr.branch-kwangmyung td.branch-cell { background-color: #e0f2fe !important; color: #0369a1; }
 
@@ -252,11 +242,10 @@
     tr.branch-anyang-sf td { background-color: #fdf2f8 !important; }
     tr.branch-anyang-sf td.branch-cell { background-color: #fce7f3 !important; color: #9d174d; }
 
-    /* 신규 입력 중인 행 강조 */
     tr.new-editing-row td { background-color: #fef3c7 !important; }
 
     td[contenteditable="true"] { outline: none; }
-    td[contenteditable="true"]:focus { outline: 2px solid #0284c7; background-color: #ffffff !important; }
+    td[contenteditable="true"]:focus { outline: 2px solid var(--theme-primary); background-color: #ffffff !important; }
     
     .pass-tag {
       display: inline-block;
@@ -285,11 +274,11 @@
       white-space: nowrap; 
     }
     .btn-achieve.completed { 
-      background-color: #0284c7; 
-      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+      background-color: var(--theme-primary); 
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
-    .btn-add { background: #0284c7; color: white; border: none; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+    .btn-add { background: var(--theme-primary); color: white; border: none; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; white-space: nowrap; }
     .btn-delete { background: #ef4444; color: white; border: none; padding: 3px 6px; border-radius: 4px; font-size: 10px; font-weight: 800; cursor: pointer; white-space: nowrap; }
 
     .empty-msg { text-align: center; color: #64748b; font-size: 12px; padding: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; margin-bottom: 10px; font-weight: 700; }
@@ -333,48 +322,6 @@
     .target-table-style td { padding: 10px; font-size: 13px; font-weight: 800; border: 1px solid #cbd5e1; color: #0f172a; }
     .target-table-style tr:nth-child(even) { background: #f8fafc; }
     .target-table-style tr.region-total { background: #e0f2fe; font-size: 14px; }
-
-    /* 🖼️ 샤먼 명소 4선 모달 */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.75);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      padding: 16px;
-    }
-    .modal-box {
-      background: #ffffff;
-      border-radius: 20px;
-      width: 100%;
-      max-width: 440px;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 20px;
-      position: relative;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .modal-title { font-size: 18px; font-weight: 900; color: #0284c7; }
-    .btn-close-modal { background: #f1f5f9; border: none; font-size: 18px; font-weight: 900; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
-
-    .gallery-grid-4 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1.5px solid #cbd5e1;
-      background: #f8fafc;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    }
-    .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
-    .gallery-caption { font-size: 12px; font-weight: 900; color: #0369a1; padding: 8px 4px; text-align: center; background: #f0f9ff; border-top: 1px solid #e2e8f0; }
   </style>
 </head>
 <body>
@@ -388,7 +335,7 @@
       <div class="app-title-box">
         <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
         <h1 class="main-hero-title">
-          <span class="clickable-xiamen" onclick="openPhotoModal()">샤먼</span> 가자 119!!
+          샤먼 가자 119!!
         </h1>
       </div>
       <div class="header-right-group">
@@ -398,11 +345,11 @@
       </div>
     </div>
 
+    <!-- D-day 삭제 및 멋지게 반짝이는 문장 배너 -->
     <div class="beach-quote-bar">
       <div class="quote-text">
-        <span>🏝️ 에메랄드빛 샤먼 해변이 우리를 기다립니다!</span>
+        <span>🏝️ ✨ 에메랄드빛 샤먼 해변이 우리를 기다립니다! ✨</span>
       </div>
-      <span class="dday-tag" id="dday-counter">D-00</span>
     </div>
 
     <div class="wave-container">
@@ -640,41 +587,59 @@
   </div>
 </div>
 
-<!-- 🖼️ 샤먼 명소 4선 모달 -->
-<div class="modal-overlay" id="photo-modal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <div class="modal-title">🌴 샤먼 핵심 명소 4선</div>
-      <button class="btn-close-modal" onclick="closePhotoModal()">✕</button>
-    </div>
-    <p style="font-size:12px; color:#64748b; font-weight:700; margin-bottom:10px;">우리가 11월에 다 함께 떠날 아름다운 샤먼입니다! ✈️</p>
-    
-    <div class="gallery-grid-4">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=500&q=80" alt="남보타사">
-        <div class="gallery-caption">1. 남보타사 ⛩️</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Snail_pit_tulou.jpg/640px-Snail_pit_tulou.jpg" alt="남정토루">
-        <div class="gallery-caption">2. 남정토루 🏯</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="구랑위1">
-        <div class="gallery-caption">3. 구랑위 해변 🏝️</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=500&q=80" alt="구랑위2">
-        <div class="gallery-caption">4. 구랑위 거리 🏛️</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- 🔥 Firebase 공식 SDK 실시간 연동 엔진 -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
   import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
   import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+  const themePalettes = [
+    {
+      heroGrad: 'linear-gradient(180deg, #0284c7 0%, #0369a1 55%, #38bdf8 100%)',
+      primary: '#0284c7',
+      dark: '#0369a1',
+      light: '#e0f2fe',
+      bgSoft: '#f0f9ff'
+    },
+    {
+      heroGrad: 'linear-gradient(180deg, #0d9488 0%, #0f766e 55%, #2dd4bf 100%)',
+      primary: '#0d9488',
+      dark: '#0f766e',
+      light: '#ccfbf1',
+      bgSoft: '#f0fdfa'
+    },
+    {
+      heroGrad: 'linear-gradient(180deg, #ea580c 0%, #c2410c 55%, #fb923c 100%)',
+      primary: '#ea580c',
+      dark: '#c2410c',
+      light: '#ffedd5',
+      bgSoft: '#fff7ed'
+    },
+    {
+      heroGrad: 'linear-gradient(180deg, #7c3aed 0%, #6d28d9 55%, #a78bfa 100%)',
+      primary: '#7c3aed',
+      dark: '#6d28d9',
+      light: '#ede9fe',
+      bgSoft: '#f5f3ff'
+    },
+    {
+      heroGrad: 'linear-gradient(180deg, #e11d48 0%, #be123c 55%, #fb7185 100%)',
+      primary: '#e11d48',
+      dark: '#be123c',
+      light: '#ffe4e6',
+      bgSoft: '#fff1f2'
+    }
+  ];
+
+  function applyRandomTheme() {
+    const randomTheme = themePalettes[Math.floor(Math.random() * themePalettes.length)];
+    const root = document.documentElement;
+    root.style.setProperty('--theme-hero-grad', randomTheme.heroGrad);
+    root.style.setProperty('--theme-primary', randomTheme.primary);
+    root.style.setProperty('--theme-dark', randomTheme.dark);
+    root.style.setProperty('--theme-light', randomTheme.light);
+    root.style.setProperty('--theme-bg-soft', randomTheme.bgSoft);
+  }
 
   const userFirebaseConfig = {
     apiKey: "YOUR_API_KEY",
@@ -689,10 +654,8 @@
     ? JSON.parse(__firebase_config) 
     : userFirebaseConfig;
 
-  // 기본 지점 목록 순서
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 최신 이미지 기준 전체 40명 기본 명단 데이터 (입과자명 / 합격 여부)
   const initialCandidateList = [
     // 광명 (8명)
     { branch: '광명', rc: '정재희', name: '김창선', ip: 1, pass: 0, reg: 0, completed: false },
@@ -769,7 +732,7 @@
       }
 
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
-      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v13');
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v14');
 
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -797,7 +760,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v13', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v14', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -821,7 +784,6 @@
     return '';
   }
 
-  // 1️⃣ 지점별 요약 표 (입과 / 합격 / 등록)
   function renderSummaryTable() {
     const tbody = document.getElementById('summary-table-body');
     if (!tbody) return;
@@ -869,7 +831,6 @@
     tbody.appendChild(totalTr);
   }
 
-  // 2️⃣ 후보자 상세 명단 (입과자명 / 입과 / 시험결과 / 등록)
   function renderCandidateTable() {
     const tbody = document.getElementById('candidate-table-body');
     const emptyNotice = document.getElementById('empty-list-notice');
@@ -997,34 +958,6 @@
     renderAllTables();
   }
 
-  function calculateDDay() {
-    const today = new Date();
-    const targetDate = new Date(today.getFullYear(), 7, 27);
-    
-    today.setHours(0, 0, 0, 0);
-    targetDate.setHours(0, 0, 0, 0);
-
-    const diffTime = targetDate - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    const ddayElem = document.getElementById('dday-counter');
-    if (!ddayElem) return;
-    
-    if (diffDays > 0) {
-      const formattedDays = diffDays < 10 ? `0${diffDays}` : diffDays;
-      ddayElem.innerText = `D-${formattedDays}`;
-    } else if (diffDays === 0) {
-      ddayElem.innerText = `D-00`;
-    } else {
-      const pastDays = Math.abs(diffDays);
-      const formattedDays = pastDays < 10 ? `0${pastDays}` : pastDays;
-      ddayElem.innerText = `D+${formattedDays}`;
-    }
-  }
-
-  function openPhotoModal() { document.getElementById('photo-modal').style.display = 'flex'; }
-  function closePhotoModal() { document.getElementById('photo-modal').style.display = 'none'; }
-
   function showSection(type) {
     document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
     
@@ -1066,8 +999,6 @@
     }
   }
 
-  window.openPhotoModal = openPhotoModal;
-  window.closePhotoModal = closePhotoModal;
   window.addRow = addRow;
   window.deleteRow = deleteRow;
   window.toggleAchieve = toggleAchieve;
@@ -1076,9 +1007,9 @@
   window.showSection = showSection;
 
   window.onload = function() {
-    calculateDDay();
+    applyRandomTheme();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v13');
+    const saved = localStorage.getItem('xiamen_candidate_data_v14');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
