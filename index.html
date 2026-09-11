@@ -237,7 +237,6 @@
     }
     th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
     
-    /* 🔍 요약 표 글자 및 숫자 확대 스타일 */
     .summary-table th { 
       background-color: var(--theme-primary); 
       color: white; 
@@ -264,7 +263,6 @@
     .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; }
     .summary-table .branch-cell { font-size: 15px; font-weight: 900; background-color: #f8fafc; }
 
-    /* 🎨 지점별 구분 색상 스타일 */
     tr.branch-kwangmyung td { background-color: #f0f9ff !important; }
     tr.branch-kwangmyung td.branch-cell { background-color: #e0f2fe !important; color: #0369a1; }
 
@@ -288,7 +286,6 @@
     td[contenteditable="true"] { outline: none; }
     td[contenteditable="true"]:focus { outline: 2px solid var(--theme-primary); background-color: #ffffff !important; }
     
-    /* 합격/등록 태그 스타일 */
     .pass-tag {
       display: inline-block;
       padding: 3px 7px;
@@ -708,7 +705,7 @@
 
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 ※ 9월등록 이미지 기준 전체 29명 최신 데이터 (합격 12명 / 최종등록 6명)
+  // 📋 유영욱 수정 반영 데이터 (v17)
   const initialCandidateList = [
     // 광명 (4명)
     { branch: '광명', rc: '정재희', name: '김창선', ip: 1, pass: 0, reg: 0, completed: false },
@@ -730,12 +727,12 @@
     { branch: '인덕원', rc: '박찬순', name: '황우선', ip: 1, pass: 1, reg: 1, completed: true },
     { branch: '인덕원', rc: '문정숙', name: '김현주', ip: 1, pass: 1, reg: 0, completed: false },
 
-    // 시흥신천 (14명)
+    // 시흥신천 (14명) - 유영욱 이름 수정 반영
     { branch: '시흥신천', rc: '박지우', name: '김정희', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '시흥신천', rc: '박지우', name: '나오훈', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '시흥신천', rc: '장근희', name: '박기완', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '시흥신천', rc: '유화자', name: '박해인', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '유영옥', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '유영욱', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '시흥신천', rc: '유화자', name: '이하얀', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '시흥신천', rc: '장근희', name: '조병기', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '시흥신천', rc: '김덕희', name: '황미정', ip: 1, pass: 0, reg: 0, completed: false },
@@ -774,7 +771,7 @@
       }
 
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
-      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v16');
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v17');
 
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -802,7 +799,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v16', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v17', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -1058,7 +1055,7 @@
   window.onload = function() {
     applyRandomTheme();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v16');
+    const saved = localStorage.getItem('xiamen_candidate_data_v17');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
