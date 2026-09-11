@@ -7,7 +7,7 @@
 
   <!-- ✈️ SNS/카카오톡 링크 공유(OG) 전용 비행기 이미지 및 정보 -->
   <meta property="og:title" content="우리 샤먼 갈래요~ - 도입 하문">
-  <meta property="og:description" content="9월 등록 ✈️ 11월 샤먼 출발! 도입 진척 및 시험결과 현황">
+  <meta property="og:description" content="9월 등록 ✈️ 11월 샤먼 출발! 도입 진척 및 시험결과/최종등록 현황">
   <meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&auto=format&fit=crop&q=80">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -129,6 +129,7 @@
       white-space: nowrap;
     }
 
+    /* ⚡ 번쩍번쩍 빛나는 배너 */
     .beach-quote-bar {
       margin-top: 10px;
       background: #092c3e;
@@ -236,6 +237,7 @@
     }
     th { background-color: #f1f5f9; color: #0f172a; font-weight: 900; }
     
+    /* 🔍 요약 표 글자 및 숫자 확대 스타일 */
     .summary-table th { 
       background-color: var(--theme-primary); 
       color: white; 
@@ -262,6 +264,7 @@
     .branch-cell { font-size: 11px; color: #0f172a; font-weight: 800; }
     .summary-table .branch-cell { font-size: 15px; font-weight: 900; background-color: #f8fafc; }
 
+    /* 🎨 지점별 구분 색상 스타일 */
     tr.branch-kwangmyung td { background-color: #f0f9ff !important; }
     tr.branch-kwangmyung td.branch-cell { background-color: #e0f2fe !important; color: #0369a1; }
 
@@ -285,17 +288,28 @@
     td[contenteditable="true"] { outline: none; }
     td[contenteditable="true"]:focus { outline: 2px solid var(--theme-primary); background-color: #ffffff !important; }
     
+    /* 합격/등록 태그 스타일 */
     .pass-tag {
       display: inline-block;
-      padding: 3px 6px;
+      padding: 3px 7px;
       border-radius: 6px;
       font-size: 11px;
       font-weight: 900;
-      background-color: #dcfce7;
-      color: #15803d;
-      border: 1px solid #86efac;
+      background-color: #fef08a;
+      color: #854d0e;
+      border: 1px solid #facc15;
     }
-    .fail-tag {
+    .reg-tag {
+      display: inline-block;
+      padding: 3px 7px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 900;
+      background-color: #fed7aa;
+      color: #9a3412;
+      border: 1px solid #fdba74;
+    }
+    .zero-tag {
       color: #94a3b8;
       font-weight: 700;
     }
@@ -354,7 +368,7 @@
     .kpi-table-style td { padding: 8px 4px; font-size: 11px; border: 1px solid #94a3b8; font-weight: 700; color: #0f172a; }
     .kpi-red-highlight-box { border: 2.5px solid #ef4444 !important; background-color: #fef2f2; }
 
-    .target-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; }
+    .target-poster-card { background: #ffffff; border: 2px solid #0284c7; border-radius: 16px; overflow: hidden; margin-top: 10px; text-align: left; }
     .target-table-style { width: 100%; border-collapse: collapse; text-align: center; }
     .target-table-style th { background: #0284c7; color: #ffffff; font-size: 14px; font-weight: 900; padding: 10px; border: 1px solid #0284c7; }
     .target-table-style td { padding: 10px; font-size: 13px; font-weight: 800; border: 1px solid #cbd5e1; color: #0f172a; }
@@ -420,9 +434,9 @@
     <div class="content-card">
       <div id="section-progress" class="table-container">
 
-        <!-- 1️⃣ 지점별 요약 현황 (입과 / 합격 / 등록) -->
+        <!-- 1️⃣ 지점별 요약 현황 (입과 / 시험결과 / 최종등록) -->
         <div class="section-title">
-          <span>🏢 지점별 요약 현황</span>
+          <span>🏢 지점별 요약 현황 (※ 9월등록)</span>
         </div>
         <table class="summary-table">
           <thead>
@@ -430,7 +444,7 @@
               <th style="width:28%;">지점</th>
               <th style="width:24%;">입과</th>
               <th style="width:24%;">합격</th>
-              <th style="width:24%;">등록</th>
+              <th style="width:24%;">최종등록</th>
             </tr>
           </thead>
           <tbody id="summary-table-body">
@@ -438,9 +452,9 @@
           </tbody>
         </table>
 
-        <!-- 2️⃣ 후보자 상세 명단 (입과 / 합격 / 등록) -->
+        <!-- 2️⃣ 후보자 상세 명단 (입과 / 시험결과 / 최종등록) -->
         <div class="section-title">
-          <span>📋 후보자 상세 명단 및 시험결과</span>
+          <span>📋 상세 명단 (총 29명)</span>
           <button class="btn-add" onclick="addRow()">+ 명단 추가</button>
         </div>
 
@@ -451,13 +465,13 @@
         <table id="progress-table">
           <thead>
             <tr>
-              <th style="width:16%;">지점</th>
+              <th style="width:16%;">지점명</th>
               <th style="width:15%;">유치자</th>
               <th style="width:18%;">입과자명</th>
               <th style="width:10%;">입과</th>
               <th style="width:13%;">시험결과</th>
-              <th style="width:10%;">등록</th>
-              <th style="width:12%;">샤먼</th>
+              <th style="width:12%;">최종등록</th>
+              <th style="width:10%;">샤먼</th>
               <th style="width:6%;">삭제</th>
             </tr>
           </thead>
@@ -465,7 +479,7 @@
             <!-- 동적 생성 -->
           </tbody>
         </table>
-        <p style="margin-top:10px; font-size:11px; color:#64748b; font-weight:700;">💡 표의 칸을 터치하여 수정할 수 있으며, 시험결과(합격) 및 등록 여부는 실시간 연동됩니다.</p>
+        <p style="margin-top:10px; font-size:11px; color:#64748b; font-weight:700;">💡 시험결과 및 최종등록 칸을 터치하면 1/0 상태가 즉시 토글되며 실시간 연동됩니다.</p>
       </div>
 
       <div id="section-image" class="image-viewer">
@@ -694,58 +708,48 @@
 
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
+  // 📋 ※ 9월등록 이미지 기준 전체 29명 최신 데이터 (합격 12명 / 최종등록 6명)
   const initialCandidateList = [
-    // 광명 (8명) - 전은실 수정 반영
+    // 광명 (4명)
     { branch: '광명', rc: '정재희', name: '김창선', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '광명', rc: '박옥희', name: '유영희', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '광명', rc: '양진서', name: '이재희', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '광명', rc: '박종숙', name: '조희영', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '광명', rc: '이수만', name: '장옥자', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '광명', rc: '류성조', name: '전나래', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '광명', rc: '김연홍', name: '전은실', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '광명', rc: '이종분', name: '원유자', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '광명', rc: '김연홍', name: '전은실', ip: 1, pass: 1, reg: 1, completed: true },
+    { branch: '광명', rc: '이종분', name: '원유자', ip: 1, pass: 1, reg: 1, completed: true },
 
-    // 안양성공 (7명)
-    { branch: '안양성공', rc: '박문홍', name: '강성환', ip: 1, pass: 1, reg: 0, completed: false },
+    // 안양성공 (3명)
     { branch: '안양성공', rc: '김영희', name: '박예인', ip: 1, pass: 1, reg: 0, completed: false },
     { branch: '안양성공', rc: '오혜숙', name: '홍재준', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '안양성공', rc: '김영희', name: '최에르덴', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '안양성공', rc: '박순천', name: '이문주', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '안양성공', rc: '이승렬', name: '이정숙', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '안양성공', rc: '조영옥', name: '최현숙', ip: 1, pass: 0, reg: 0, completed: false },
 
-    // 안양비산 (4명)
-    { branch: '안양비산', rc: '김일선', name: '김홍매', ip: 1, pass: 0, reg: 0, completed: false },
+    // 안양비산 (2명)
     { branch: '안양비산', rc: '박명숙', name: 'WANG DONGXU(왕동욱)', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '안양비산', rc: '홍예미', name: '조상근', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '안양비산', rc: '박명숙', name: 'LIZHE(이철)', ip: 1, pass: 0, reg: 0, completed: false },
 
-    // 인덕원 (6명)
-    { branch: '인덕원', rc: '박찬순', name: '김남화', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '인덕원', rc: '박찬순', name: '황우선', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '인덕원', rc: '이향수', name: '황연창', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '인덕원', rc: '남경애', name: 'SUN YINGLAN(손영란)', ip: 1, pass: 0, reg: 0, completed: false },
+    // 인덕원 (3명)
+    { branch: '인덕원', rc: '박찬순', name: '김남화', ip: 1, pass: 1, reg: 1, completed: true },
+    { branch: '인덕원', rc: '박찬순', name: '황우선', ip: 1, pass: 1, reg: 1, completed: true },
     { branch: '인덕원', rc: '문정숙', name: '김현주', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '인덕원', rc: '석해탄', name: 'HAN DONGRI(한동일)', ip: 1, pass: 0, reg: 0, completed: false },
 
-    // 시흥신천 (9명)
-    { branch: '시흥신천', rc: '김보민', name: '진선숙', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '김설매', ip: 1, pass: 0, reg: 0, completed: false },
+    // 시흥신천 (14명)
+    { branch: '시흥신천', rc: '박지우', name: '김정희', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '나오훈', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '장근희', name: '박기완', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '유화자', name: '박해인', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '유영옥', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '유화자', name: '이하얀', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '장근희', name: '조병기', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '김덕희', name: '황미정', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '시흥신천', rc: '장근희', name: '문진주', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '박현석', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '권혁태', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '장근희', name: '김도연', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '차명옥', name: '박규리', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '김보민', name: '신은진', ip: 1, pass: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '김원경', name: '백미영', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '장근희', name: '김도연', ip: 1, pass: 0, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '권혁태', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '박현석', ip: 1, pass: 1, reg: 1, completed: true },
+    { branch: '시흥신천', rc: '김보민', name: '신은진', ip: 1, pass: 1, reg: 1, completed: true },
 
-    // 안양SF (6명)
-    { branch: '안양SF', rc: '김명희', name: '김명선', ip: 1, pass: 0, reg: 0, completed: false },
+    // 안양SF (3명)
     { branch: '안양SF', rc: '이경환', name: '유지은', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '안양SF', rc: '이경환', name: '임수환', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '안양SF', rc: '임예슬', name: '조한솔', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '안양SF', rc: '김미례', name: '한진우', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '안양SF', rc: '박영혜', name: '김선정', ip: 1, pass: 0, reg: 0, completed: false }
+    { branch: '안양SF', rc: '김미례', name: '한진우', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '안양SF', rc: '박영혜', name: '김선정', ip: 1, pass: 1, reg: 0, completed: false }
   ];
 
   let candidateList = JSON.parse(JSON.stringify(initialCandidateList));
@@ -770,7 +774,7 @@
       }
 
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
-      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v15');
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v16');
 
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -798,7 +802,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v15', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v16', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -898,9 +902,11 @@
         <td contenteditable="true" onblur="updateRowData(${index}, 'name', this.innerText)">${item.name || ''}</td>
         <td contenteditable="true" onblur="updateRowData(${index}, 'ip', this.innerText)">${item.ip ?? 1}</td>
         <td style="cursor:pointer;" onclick="togglePass(${index})">
-          ${item.pass ? '<span class="pass-tag">합격</span>' : '<span class="fail-tag">-</span>'}
+          ${item.pass ? '<span class="pass-tag">1 (합격)</span>' : '<span class="zero-tag">0</span>'}
         </td>
-        <td contenteditable="true" onblur="updateRowData(${index}, 'reg', this.innerText)">${item.reg ?? 0}</td>
+        <td style="cursor:pointer;" onclick="toggleReg(${index})">
+          ${item.reg ? '<span class="reg-tag">1 (등록)</span>' : '<span class="zero-tag">0</span>'}
+        </td>
         <td>
           <button class="btn-achieve ${item.completed ? 'completed' : ''}" onclick="toggleAchieve(${index})">
             ${item.completed ? '달성! 🎉' : '준비'}
@@ -939,11 +945,7 @@
       candidateList[index][field] = numVal;
 
       if (field === 'reg') {
-        if (numVal >= 1 && !candidateList[index].completed) {
-          candidateList[index].completed = true;
-        } else if (numVal === 0) {
-          candidateList[index].completed = false;
-        }
+        candidateList[index].completed = (numVal >= 1);
       }
     }
 
@@ -958,6 +960,14 @@
 
   function togglePass(index) {
     candidateList[index].pass = candidateList[index].pass ? 0 : 1;
+    saveData();
+    renderAllTables();
+  }
+
+  function toggleReg(index) {
+    const nextVal = candidateList[index].reg ? 0 : 1;
+    candidateList[index].reg = nextVal;
+    candidateList[index].completed = (nextVal === 1);
     saveData();
     renderAllTables();
   }
@@ -1041,13 +1051,14 @@
   window.deleteRow = deleteRow;
   window.toggleAchieve = toggleAchieve;
   window.togglePass = togglePass;
+  window.toggleReg = toggleReg;
   window.updateRowData = updateRowData;
   window.showSection = showSection;
 
   window.onload = function() {
     applyRandomTheme();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v15');
+    const saved = localStorage.getItem('xiamen_candidate_data_v16');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
