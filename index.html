@@ -129,7 +129,6 @@
       white-space: nowrap;
     }
 
-    /* ⚡ 번쩍번쩍 빛나는 배너 */
     .beach-quote-bar {
       margin-top: 10px;
       background: #092c3e;
@@ -433,7 +432,7 @@
 
         <!-- 1️⃣ 지점별 요약 현황 (입과 / 시험결과 / 최종등록) -->
         <div class="section-title">
-          <span>🏢 지점별 요약 현황 (※ 9월등록)</span>
+          <span>🏢 지점별 요약 현황 (※ 9월등록 22명)</span>
         </div>
         <table class="summary-table">
           <thead>
@@ -451,7 +450,7 @@
 
         <!-- 2️⃣ 후보자 상세 명단 (입과 / 시험결과 / 최종등록) -->
         <div class="section-title">
-          <span>📋 상세 명단 (총 29명)</span>
+          <span>📋 상세 명단 (총 22명)</span>
           <button class="btn-add" onclick="addRow()">+ 명단 추가</button>
         </div>
 
@@ -705,11 +704,10 @@
 
   const branchList = ['광명', '안양성공', '안양비산', '인덕원', '시흥신천', '안양SF'];
 
-  // 📋 유영욱 수정 반영 데이터 (v17)
+  // 📋 9월등록 최신 22명 데이터 (합격 16명 / 최종등록 10명)
   const initialCandidateList = [
-    // 광명 (4명)
+    // 광명 (3명)
     { branch: '광명', rc: '정재희', name: '김창선', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '광명', rc: '박종숙', name: '조희영', ip: 1, pass: 0, reg: 0, completed: false },
     { branch: '광명', rc: '김연홍', name: '전은실', ip: 1, pass: 1, reg: 1, completed: true },
     { branch: '광명', rc: '이종분', name: '원유자', ip: 1, pass: 1, reg: 1, completed: true },
 
@@ -727,26 +725,20 @@
     { branch: '인덕원', rc: '박찬순', name: '황우선', ip: 1, pass: 1, reg: 1, completed: true },
     { branch: '인덕원', rc: '문정숙', name: '김현주', ip: 1, pass: 1, reg: 0, completed: false },
 
-    // 시흥신천 (14명) - 유영욱 이름 수정 반영
-    { branch: '시흥신천', rc: '박지우', name: '김정희', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '나오훈', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '장근희', name: '박기완', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '유화자', name: '박해인', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '유영욱', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '유화자', name: '이하얀', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '장근희', name: '조병기', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '김덕희', name: '황미정', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '장근희', name: '문진주', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '김원경', name: '백미영', ip: 1, pass: 0, reg: 0, completed: false },
+    // 시흥신천 (8명)
+    { branch: '시흥신천', rc: '박지우', name: '유영욱', ip: 1, pass: 1, reg: 0, completed: false },
     { branch: '시흥신천', rc: '장근희', name: '김도연', ip: 1, pass: 0, reg: 0, completed: false },
-    { branch: '시흥신천', rc: '박지우', name: '권혁태', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '유화자', name: '박해인', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '유화자', name: '이하얀', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '나오훈', ip: 1, pass: 1, reg: 0, completed: false },
+    { branch: '시흥신천', rc: '박지우', name: '권혁태', ip: 1, pass: 1, reg: 1, completed: true },
     { branch: '시흥신천', rc: '박지우', name: '박현석', ip: 1, pass: 1, reg: 1, completed: true },
     { branch: '시흥신천', rc: '김보민', name: '신은진', ip: 1, pass: 1, reg: 1, completed: true },
 
     // 안양SF (3명)
-    { branch: '안양SF', rc: '이경환', name: '유지은', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '안양SF', rc: '김미례', name: '한진우', ip: 1, pass: 1, reg: 0, completed: false },
-    { branch: '안양SF', rc: '박영혜', name: '김선정', ip: 1, pass: 1, reg: 0, completed: false }
+    { branch: '안양SF', rc: '이경환', name: '유지은', ip: 1, pass: 1, reg: 1, completed: true },
+    { branch: '안양SF', rc: '김미례', name: '한진우', ip: 1, pass: 1, reg: 1, completed: true },
+    { branch: '안양SF', rc: '박영혜', name: '김선정', ip: 1, pass: 1, reg: 1, completed: true }
   ];
 
   let candidateList = JSON.parse(JSON.stringify(initialCandidateList));
@@ -771,7 +763,7 @@
       }
 
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
-      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v17');
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v18');
 
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -799,7 +791,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v17', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v18', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -1055,7 +1047,7 @@
   window.onload = function() {
     applyRandomTheme();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v17');
+    const saved = localStorage.getItem('xiamen_candidate_data_v18');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
