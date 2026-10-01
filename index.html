@@ -135,8 +135,36 @@
       text-align: center;
     }
 
+    .title-row-top-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* 🕺 신나게 춤추는 남자 캐릭터 애니메이션 */
+    .dancing-guy {
+      display: inline-block;
+      font-size: 34px;
+      animation: danceMotion 0.8s infinite alternate ease-in-out;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+      transform-origin: bottom center;
+    }
+
+    @keyframes danceMotion {
+      0% {
+        transform: translateY(0) rotate(-12deg) scale(1);
+      }
+      50% {
+        transform: translateY(-8px) rotate(0deg) scale(1.1);
+      }
+      100% {
+        transform: translateY(0) rotate(12deg) scale(1);
+      }
+    }
+
     .title-row-top {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 900;
       color: #ffffff;
       text-shadow: 0 0 15px rgba(253, 224, 71, 0.7), 0 3px 8px rgba(0, 0, 0, 0.4);
@@ -343,7 +371,7 @@
 <div class="app-container">
   <div class="beach-hero">
     <div class="sun-glow"></div>
-    <div class="floating-plane">✈️️</div>
+    <div class="floating-plane">✈</div>
 
     <div class="hero-top-bar">
       <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
@@ -352,10 +380,13 @@
       </div>
     </div>
 
-    <!-- ⚡⚡ 화면 꽉 차게 번쩍거리는 축하 헤드라인 (에메랄드 배지 삭제 완료) ⚡⚡ -->
+    <!-- ⚡⚡ 샤먼 글자 왼쪽 춤추는 남자캐릭터(🕺) + 대형 번쩍임 축하 헤드라인 ⚡⚡ -->
     <div class="hero-title-wrap">
       <h1 class="main-hero-title">
-        <span class="title-row-top">샤먼 확정 15명</span>
+        <div class="title-row-top-wrap">
+          <span class="dancing-guy">🕺</span>
+          <span class="title-row-top">샤먼 확정 15명</span>
+        </div>
         <span class="title-row-bottom">축하드립니다!!! 🎉</span>
       </h1>
     </div>
@@ -712,7 +743,7 @@
       }
 
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
-      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v21');
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v22');
 
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -740,7 +771,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v21', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v22', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -996,7 +1027,7 @@
   window.onload = function() {
     applyRandomTheme();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v21');
+    const saved = localStorage.getItem('xiamen_candidate_data_v22');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
