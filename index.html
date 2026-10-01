@@ -59,7 +59,7 @@
     .beach-hero {
       position: relative;
       background: var(--theme-hero-grad);
-      padding: 20px 16px 36px 16px;
+      padding: 24px 16px 38px 16px;
       color: white;
       overflow: hidden;
       transition: background 0.5s ease;
@@ -79,8 +79,8 @@
     .floating-plane {
       position: absolute;
       top: 14px;
-      left: 10px;
-      font-size: 18px;
+      left: 12px;
+      font-size: 20px;
       animation: planeFly 4s ease-in-out infinite alternate;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     }
@@ -89,33 +89,17 @@
       100% { transform: translate(12px, -6px) rotate(4deg); }
     }
 
-    .hero-header-top {
+    .hero-top-bar {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       position: relative;
       z-index: 2;
-      gap: 8px;
+      margin-bottom: 12px;
+      padding-left: 28px;
     }
 
-    .app-title-box { display: flex; flex-direction: column; flex: 1; min-width: 0; }
-    .sub-tag { font-size: 11px; font-weight: 800; color: #ffffff; opacity: 0.9; letter-spacing: 0.5px; margin-bottom: 3px; }
-    
-    /* 📢 변경된 타이틀 스타일 */
-    .main-hero-title {
-      font-size: 22px;
-      line-height: 1.25;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: -0.6px;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      white-space: normal;
-    }
-
-    .header-right-group { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+    .sub-tag { font-size: 12px; font-weight: 800; color: #ffffff; opacity: 0.95; letter-spacing: 0.5px; }
 
     .badge-box {
       background: linear-gradient(135deg, #ef4444, #dc2626);
@@ -125,89 +109,68 @@
       font-size: 11px;
       font-weight: 900;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+      box-shadow: 0 4px 10px rgba(220, 38, 38, 0.35);
       line-height: 1.2;
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.85);
       white-space: nowrap;
     }
 
-    /* ⚡ 번쩍번쩍 빛나는 배너 */
-    .beach-quote-bar {
-      margin-top: 10px;
-      background: #092c3e;
-      border: 2px solid #34d399;
-      border-radius: 14px;
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* ⚡⚡ 화면 꽉 차게 번쩍거리는 초대형 축하 배너 타이틀 ⚡⚡ */
+    .hero-title-wrap {
       position: relative;
       z-index: 2;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(52, 211, 153, 0.6), inset 0 0 10px rgba(52, 211, 153, 0.3);
-      animation: badgeFlashGlow 1.8s ease-in-out infinite alternate;
-    }
-
-    @keyframes badgeFlashGlow {
-      0% {
-        border-color: #34d399;
-        box-shadow: 0 0 10px rgba(52, 211, 153, 0.5), inset 0 0 6px rgba(52, 211, 153, 0.2);
-        transform: scale(1);
-      }
-      50% {
-        border-color: #fde047;
-        box-shadow: 0 0 24px rgba(253, 224, 71, 0.9), inset 0 0 14px rgba(253, 224, 71, 0.4);
-        transform: scale(1.015);
-      }
-      100% {
-        border-color: #38bdf8;
-        box-shadow: 0 0 20px rgba(56, 189, 248, 0.8), inset 0 0 12px rgba(56, 189, 248, 0.4);
-        transform: scale(1);
-      }
-    }
-
-    .beach-quote-bar::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -150%;
-      width: 80%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-      transform: rotate(25deg);
-      animation: sweepShine 2.5s infinite;
-      pointer-events: none;
-    }
-
-    @keyframes sweepShine {
-      0% { left: -150%; }
-      35% { left: 160%; }
-      100% { left: 160%; }
-    }
-
-    .quote-text { 
-      font-size: 13px; 
-      font-weight: 900; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      gap: 6px; 
-      width: 100%;
       text-align: center;
-      background: linear-gradient(90deg, #6ee7b7, #fef08a, #67e8f9, #6ee7b7);
-      background-size: 300% auto;
+      padding: 8px 4px 6px 4px;
+    }
+
+    .main-hero-title {
+      font-size: 30px;
+      line-height: 1.25;
+      font-weight: 900;
+      letter-spacing: -1px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+    }
+
+    .title-row-top {
+      font-size: 32px;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(253, 224, 71, 0.7), 0 3px 8px rgba(0, 0, 0, 0.4);
+      animation: glowPulse 2s ease-in-out infinite alternate;
+    }
+
+    .title-row-bottom {
+      font-size: 26px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #fef08a, #ffffff, #67e8f9, #fef08a);
+      background-size: 250% auto;
       color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
-      animation: textFlow 3s linear infinite;
-      text-shadow: 0 0 12px rgba(110, 231, 183, 0.6);
-      position: relative;
-      z-index: 3;
+      animation: shimmerSparkle 2.5s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(254, 240, 138, 0.8));
     }
 
-    @keyframes textFlow {
+    @keyframes glowPulse {
+      0% {
+        color: #ffffff;
+        text-shadow: 0 0 12px rgba(253, 224, 71, 0.5), 0 3px 6px rgba(0,0,0,0.3);
+        transform: scale(1);
+      }
+      100% {
+        color: #fef08a;
+        text-shadow: 0 0 24px rgba(254, 240, 138, 1), 0 0 35px rgba(52, 211, 153, 0.8), 0 4px 10px rgba(0,0,0,0.5);
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes shimmerSparkle {
       0% { background-position: 0% center; }
-      100% { background-position: 300% center; }
+      100% { background-position: 250% center; }
     }
 
     .wave-container { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
@@ -382,27 +345,19 @@
     <div class="sun-glow"></div>
     <div class="floating-plane">✈️️</div>
 
-    <div class="hero-header-top">
-      <div class="app-title-box">
-        <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
-        <!-- 📢 변경된 타이틀 -->
-        <h1 class="main-hero-title">
-          <span>샤먼 확정 15명</span>
-          <span>축하드립니다!!!</span>
-        </h1>
-      </div>
-      <div class="header-right-group">
-        <div class="badge-box">
-          9월 등록<br>✈️ 11월 출발
-        </div>
+    <div class="hero-top-bar">
+      <span class="sub-tag">🌴 Xiamen Coastal Challenge</span>
+      <div class="badge-box">
+        9월 등록<br>✈️ 11월 출발
       </div>
     </div>
 
-    <!-- ⚡ 번쩍이는 배너 -->
-    <div class="beach-quote-bar">
-      <div class="quote-text">
-        <span>🏝️ ✨ 에메랄드빛 샤먼 해변이 우리를 기다립니다! ✨</span>
-      </div>
+    <!-- ⚡⚡ 화면 꽉 차게 번쩍거리는 축하 헤드라인 (에메랄드 배지 삭제 완료) ⚡⚡ -->
+    <div class="hero-title-wrap">
+      <h1 class="main-hero-title">
+        <span class="title-row-top">샤먼 확정 15명</span>
+        <span class="title-row-bottom">축하드립니다!!! 🎉</span>
+      </h1>
     </div>
 
     <div class="wave-container">
@@ -757,7 +712,7 @@
       }
 
       const appId = typeof __app_id !== 'undefined' ? __app_id : 'xiamen-119-prod';
-      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v20');
+      docRef = doc(db, 'artifacts', appId, 'public', 'data', 'xiamen_team', 'mainData_v21');
 
       onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
@@ -785,7 +740,7 @@
 
   async function saveData() {
     try {
-      localStorage.setItem('xiamen_candidate_data_v20', JSON.stringify(candidateList));
+      localStorage.setItem('xiamen_candidate_data_v21', JSON.stringify(candidateList));
     } catch(e) {}
 
     if (db && docRef) {
@@ -1041,7 +996,7 @@
   window.onload = function() {
     applyRandomTheme();
     
-    const saved = localStorage.getItem('xiamen_candidate_data_v20');
+    const saved = localStorage.getItem('xiamen_candidate_data_v21');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
